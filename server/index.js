@@ -30,7 +30,7 @@ massive(CONNECTION_STRING)
 app.post("/api/auth/register", authCtrl.register);
 app.post("/api/auth/login", authCtrl.login);
 app.post("/api/auth/logout", authCtrl.logout);
-app.post("/api/auth/getuser", authCtrl.getUser);
+app.get("/api/auth/user", authCtrl.getUser);
 
 //LIST ENDPOINTS
 

@@ -1,0 +1,25 @@
+@import '../../sass/resets';
+
+$font:'Raleway',
+sans-serif;
+
+$dashboard_height: (100vh * (5/6));
+
+.dashboard {
+    height: $dashboard_height;
+    font-family: $font;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 5vh;
+    }
+}
+
+.linkstyle {
+    text-decoration: none;
+    color: black;
+}

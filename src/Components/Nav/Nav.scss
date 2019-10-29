@@ -1,0 +1,23 @@
+$font:'Raleway',
+sans-serif;
+
+.navMenuContainer {
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    $navHeight: (100vh/6);
+    height: $navHeight;
+    font-family: $font;
+
+
+    img {
+        height: calc($navHeight - 10px);
+        width: calc($navHeight - 10px);
+    }
+}

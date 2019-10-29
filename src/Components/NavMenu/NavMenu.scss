@@ -1,0 +1,39 @@
+.dropdown {
+    height: 0;
+    overflow: hidden;
+    color: black;
+}
+
+.hide-animation {
+    animation-name: hide;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.show-animation {
+    animation-name: show;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+    0% {
+        height: 100px;
+    }
+
+    100% {
+        height: 0px;
+    }
+}
+
+@keyframes show {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 100px;
+    }
+}

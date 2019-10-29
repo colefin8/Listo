@@ -1,0 +1,3 @@
+@mixin theme($light-theme: true) {
+    @if $light-theme {}
+}
