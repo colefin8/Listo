@@ -1,19 +1,37 @@
 import React, { useState } from "react";
 import Nav from "../Nav/Nav";
+import { connect } from "react-redux";
 // import { Link } from "react-router-dom";
 import "./NewList.css";
 import axios from "axios";
 
-const NewList = () => {
+const NewList = props => {
   const [listName, changeListName] = useState("");
   const [shared, changeShared] = useState(true);
   const [budget, changeBudget] = useState("");
 
   const addNewList = () => {
-    axios
-      .post()
-      .then()
-      .catch();
+    console.log(`firing, props.email: ${props.email}`);
+    props.email
+      ? axios
+          .post("/api/list/add", {
+            listName,
+            shared,
+            budget,
+            email: props.email
+          })
+          .then(res => {
+            const { list_id } = res.data;
+            props.history.push(`/list/${list_id}`);
+          })
+          .catch(err => console.log(err))
+      : axios
+          .post("/api/list/addguest")
+          .then(res => {
+            const { list_id } = res.data;
+            props.history.push(`/list/${list_id}`);
+          })
+          .catch();
   };
 
   return (
@@ -65,4 +83,12 @@ const NewList = () => {
   );
 };
 
-export default NewList;
+const mapStateToProps = reduxState => {
+  const { email } = reduxState;
+
+  return {
+    email
+  };
+};
+
+export default connect(mapStateToProps)(NewList);

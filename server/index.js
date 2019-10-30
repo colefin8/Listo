@@ -3,8 +3,9 @@ const express = require("express"),
   massive = require("massive"),
   session = require("express-session"),
   { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env,
-  authCtrl = require("./authController");
-app = express();
+  authCtrl = require("./authController"),
+  listCtrl = require("./listController"),
+  app = express();
 
 app.use(express.json());
 app.use(
@@ -33,6 +34,9 @@ app.post("/api/auth/logout", authCtrl.logout);
 app.get("/api/auth/user", authCtrl.getUser);
 
 //LIST ENDPOINTS
+app.post("/api/list/add", listCtrl.add);
+app.post("/api/list/addguest", listCtrl.addGuest);
+app.get("/api/list/:id", listCtrl.getList);
 
 //USER ENDPOINTS
 

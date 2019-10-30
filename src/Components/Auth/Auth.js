@@ -25,7 +25,8 @@ const Auth = props => {
     axios
       .post("/api/auth/register", { emailInput, passwordInput })
       .then(res => {
-        props.updateUser(res.data);
+        const { user_id, profile_pic, email } = res.data;
+        props.updateUser(email, profile_pic, user_id);
         props.history.push("/dashboard");
       })
       .catch(err => console.log(err, props));
@@ -35,7 +36,8 @@ const Auth = props => {
     axios
       .post("/api/auth/login", { emailInput, passwordInput })
       .then(res => {
-        props.updateUser(res.data.email, res.data.profile_pic);
+        const { user_id, profile_pic, email } = res.data;
+        props.updateUser(email, profile_pic, user_id);
         props.history.push("/dashboard");
       })
       .catch(err => console.log(err, props));

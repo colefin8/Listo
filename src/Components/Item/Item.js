@@ -1,6 +1,6 @@
 import React from "react";
 
-function Item() {
+function Item(props) {
   return <section>Item</section>;
 }
 

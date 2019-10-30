@@ -1,2 +1,2 @@
 INSERT INTO users (email, password) VALUES ($1, $2);
-SELECT * FROM users where email = $1;
+SELECT user_id, email, profile_pic FROM users where email = $1;

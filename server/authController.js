@@ -48,7 +48,7 @@ module.exports = {
   },
   getUser: async (req, res) => {
     if (!req.session.user) {
-      res.sendStatus(401);
+      res.status(200).send({ email: "guest", profile_pic: "none", user_id: 0 });
     } else {
       res.status(200).send(req.session.user);
     }

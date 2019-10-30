@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import { connect } from "react-redux";
-
 import { updateUser } from "../../redux/userReducer";
 import NavMenu from "../NavMenu/NavMenu";
 import "@fortawesome/fontawesome-free/css/all.css";
@@ -35,9 +33,10 @@ const Nav = props => {
       .get("/api/auth/user")
       .then(res => {
         console.log(res);
-        const { email, profilePic } = res.data;
+        const { email, profile_pic, user_id } = res.data;
         changeEmail(email);
-        changeProfilePic(profilePic);
+        changeProfilePic(profile_pic);
+        updateUser(email, profile_pic, user_id);
       })
       .catch(err => console.log(err));
   }, []);
@@ -57,11 +56,12 @@ const Nav = props => {
 };
 
 const mapStateToProps = reduxState => {
-  const { email, profilePic } = reduxState;
+  const { email, profile_pic, user_id } = reduxState;
 
   return {
     email,
-    profilePic
+    profile_pic,
+    user_id
   };
 };
 

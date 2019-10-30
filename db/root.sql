@@ -2,7 +2,7 @@ CREATE TABLE users (
 user_id serial primary key, password varchar(250), email varchar(50), profile_pic varchar(100));
 
 CREATE TABLE list 
-(list_id serial primary key, creator_id int references users(user_id), private boolean, budget float);
+(list_id serial primary key, creator_id int references users(user_id), name varchar(30), private boolean, budget float);
 
 CREATE TABLE groups 
 (group_id serial primary key, user_id int references users(user_id), list_id int references list(list_id));
