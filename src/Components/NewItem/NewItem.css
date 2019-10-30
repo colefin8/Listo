@@ -1,0 +1,105 @@
+.popup {
+  position: fixed;
+  margin: 20px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+.hide-new-item-animation {
+  -webkit-animation-name: hide;
+          animation-name: hide;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.show-new-item-animation {
+  -webkit-animation-name: show;
+          animation-name: show;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes hide {
+  0% {
+    border: 1px solid black;
+    height: calc((500vh/6) - 40px);
+    width: calc(100vw - 40px);
+    font-size: 18px;
+  }
+  100% {
+    margin: 50%;
+    width: 0px;
+    height: 0px;
+    font-size: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    border: 1px solid black;
+    height: calc((500vh/6) - 40px);
+    width: calc(100vw - 40px);
+    font-size: 18px;
+  }
+  100% {
+    margin: 50%;
+    width: 0px;
+    height: 0px;
+    font-size: 0;
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    margin: 50%;
+    width: 0px;
+    height: 0px;
+    font-size: 0;
+  }
+  100% {
+    border: 1px solid black;
+    height: calc((500vh/6) - 40px);
+    width: calc(100vw - 40px);
+    font-size: 18px;
+  }
+}
+
+@keyframes show {
+  0% {
+    margin: 50%;
+    width: 0px;
+    height: 0px;
+    font-size: 0;
+  }
+  100% {
+    border: 1px solid black;
+    height: calc((500vh/6) - 40px);
+    width: calc(100vw - 40px);
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=NewItem.css.map */

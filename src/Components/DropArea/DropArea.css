@@ -1,0 +1,9 @@
+.dropArea {
+  position: fixed;
+  top: 25%;
+  right: 25%;
+  height: 50%;
+  width: 50%;
+  border: 1px solid black;
+}
+/*# sourceMappingURL=DropArea.css.map */

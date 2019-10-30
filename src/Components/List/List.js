@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import NewItem from "../NewItem/NewItem";
 import Item from "../Item/Item";
 import Nav from "../Nav/Nav";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./List.css";
 
 function List(props) {
+  const [justLoaded, changeJustLoaded] = useState(true);
+  const [showMenu, changeShowMenu] = useState(true);
   const [name, changeName] = useState("");
   const [budget, changeBudget] = useState(0);
   const [creatorId, changeCreatorId] = useState(0);
@@ -27,10 +31,25 @@ function List(props) {
       .catch(err => console.log(err));
   }, [props.match.params.listid]);
 
+  const toggleAddItem = () => {
+    changeShowMenu(!showMenu);
+    changeJustLoaded(false);
+  };
+
+  const addItemClassName = () => {
+    const name = justLoaded
+      ? "popup"
+      : showMenu
+      ? "popup hide-new-item-animation"
+      : "popup show-new-item-animation";
+    return name;
+  };
+
   const authentication = () => {
     return shared ? (
       props.user_id === creatorId ? (
         <section>
+          <form className={addItemClassName()}>New Item Form</form>
           <Nav />
           <h1>{name}</h1>
           {`budget: $${budget}`}
@@ -49,9 +68,10 @@ function List(props) {
     ) : (
       <section>
         <Nav />
+        <NewItem name={addItemClassName()} />
         <h1>{name}</h1>
-        {`budget: $${budget}`}
-        <button onClick={() => }>Add Item</button>
+        <h1>{`budget: $${budget}`}</h1>
+        <button onClick={toggleAddItem}>Add Item</button>
         <Item listId={listId} />
       </section>
     );

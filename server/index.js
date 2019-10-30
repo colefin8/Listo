@@ -2,11 +2,13 @@ require("dotenv").config();
 const express = require("express"),
   massive = require("massive"),
   session = require("express-session"),
+  amazon = require("amazon-product-api"),
   { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env,
   authCtrl = require("./authController"),
   listCtrl = require("./listController"),
   app = express();
 
+const client = amazon.createClient({});
 app.use(express.json());
 app.use(
   session({

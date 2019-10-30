@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,GAAG;EACR,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,GAAG;EACX,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,eACZ;CAAC",
+    "sources": [
+        "DropArea.scss"
+    ],
+    "names": [],
+    "file": "DropArea.css"
+}
