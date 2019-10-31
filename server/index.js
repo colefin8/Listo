@@ -6,6 +6,7 @@ const express = require("express"),
   { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env,
   authCtrl = require("./authController"),
   listCtrl = require("./listController"),
+  itemCtrl = require("./itemController"),
   app = express();
 
 const client = amazon.createClient({});
@@ -39,6 +40,11 @@ app.get("/api/auth/user", authCtrl.getUser);
 app.post("/api/list/add", listCtrl.add);
 app.post("/api/list/addguest", listCtrl.addGuest);
 app.get("/api/list/:id", listCtrl.getList);
+
+//ITEM ENDPOINTS
+app.post("/api/item/add", itemCtrl.add);
+app.get("/api/items/:id", itemCtrl.getItems);
+app.get("/api/item/:id", itemCtrl.getItem);
 
 //USER ENDPOINTS
 

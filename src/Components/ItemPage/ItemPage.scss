@@ -1,0 +1,30 @@
+.largeItemImage {
+  width: 74vw;
+  height: 37vw;
+}
+
+.itemPage {
+  width: 100vw;
+  height: calc((500vh / 6) - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.editInput {
+  z-index: 1000;
+}
+
+.buttons {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sidebyside {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}

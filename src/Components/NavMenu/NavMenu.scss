@@ -1,39 +1,44 @@
 .dropdown {
-    height: 0;
-    overflow: hidden;
-    color: black;
+  height: 0;
+  overflow: hidden;
+  color: black;
+}
+
+.profilePic {
+  width: 100px;
+  height: 100px;
 }
 
 .hide-animation {
-    animation-name: hide;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .show-animation {
-    animation-name: show;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-name: show;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes hide {
-    0% {
-        height: 100px;
-    }
+  0% {
+    height: 100px;
+  }
 
-    100% {
-        height: 0px;
-    }
+  100% {
+    height: 0px;
+  }
 }
 
 @keyframes show {
-    0% {
-        height: 0px;
-    }
+  0% {
+    height: 0px;
+  }
 
-    100% {
-        height: 100px;
-    }
+  100% {
+    height: 100px;
+  }
 }

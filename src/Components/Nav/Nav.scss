@@ -1,23 +1,19 @@
-$font:'Raleway',
-sans-serif;
+$font: "Raleway", sans-serif;
 
 .navMenuContainer {
-    border-bottom: 1px solid black;
-    display: flex;
-    flex-direction: column;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
 .navBar {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    $navHeight: (100vh/6);
-    height: $navHeight;
-    font-family: $font;
-
-
-    img {
-        height: calc($navHeight - 10px);
-        width: calc($navHeight - 10px);
-    }
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  $navHeight: (100vh/6);
+  height: $navHeight;
+  font-family: $font;
+  box-sizing: border-box;
 }

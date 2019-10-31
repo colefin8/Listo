@@ -1,0 +1,1 @@
+SELECT * FROM item WHERE list_id = $1

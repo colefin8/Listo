@@ -3,10 +3,11 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/userReducer";
 import NavMenu from "../NavMenu/NavMenu";
+import usericon from "./icons/usericon.jpg";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./Nav.css";
 
-const Nav = props => {
+const Nav = () => {
   //STATE
   const [justLoaded, changeJustLoaded] = useState(true);
   const [showMenu, changeShowMenu] = useState(true);
@@ -46,7 +47,11 @@ const Nav = props => {
       {" "}
       <header className="navBar">
         {" "}
-        <img alt="profile" src={profilePic} />{" "}
+        <img
+          alt="profile"
+          className="profilePic"
+          src={profilePic ? profilePic : usericon}
+        />{" "}
         <h1> {email ? `${email}` : `guest`}</h1>{" "}
         <i className="fas fa-bars fa-3x" onClick={toggleMenu}></i>{" "}
       </header>{" "}

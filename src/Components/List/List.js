@@ -21,6 +21,7 @@ function List(props) {
       .get(`api/list/${props.match.params.listid}`)
       .then(res => {
         const { list_id, creator_id, budget, name } = res.data;
+        console.log(creator_id);
         const shared = res.data.private;
         changeName(name);
         changeBudget(budget);
@@ -53,9 +54,10 @@ function List(props) {
           <Nav />
           <h1>{name}</h1>
           {`budget: $${budget}`}
-          <Item />
+          <Item listId={listId} shared={shared} />
         </section>
       ) : (
+        //End of props.user_id == creatorId? first statement
         <>
           {" "}
           <h1>This is a private list</h1>
@@ -66,13 +68,25 @@ function List(props) {
         </>
       )
     ) : (
+      //End of shared? first statement
       <section>
         <Nav />
-        <NewItem name={addItemClassName()} />
-        <h1>{name}</h1>
-        <h1>{`budget: $${budget}`}</h1>
-        <button onClick={toggleAddItem}>Add Item</button>
-        <Item listId={listId} />
+        <NewItem
+          name={addItemClassName()}
+          toggleAddItem={toggleAddItem}
+          listId={listId}
+          userId={props.user_id}
+        />
+        {showMenu ? (
+          <>
+            {" "}
+            <h1>{name}</h1>
+            <h1>{`budget: $${budget}`}</h1>
+            <button onClick={toggleAddItem}>Add Item</button>
+            <Item listId={listId} shared={shared} />
+          </>
+        ) : //Just set to return null if the new item menu is open, so nothing is rendered underneath it
+        null}
       </section>
     );
     //if shared(private) is false then it can be viewed by anyone

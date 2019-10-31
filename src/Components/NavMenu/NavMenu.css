@@ -4,6 +4,11 @@
   color: black;
 }
 
+.profilePic {
+  width: 100px;
+  height: 100px;
+}
+
 .hide-animation {
   -webkit-animation-name: hide;
           animation-name: hide;

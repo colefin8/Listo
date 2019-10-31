@@ -1,3 +1,10 @@
+.exit {
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .popup {
   position: fixed;
   margin: 20px;
@@ -22,8 +29,8 @@
 }
 
 .hide-new-item-animation {
-  -webkit-animation-name: hide;
-          animation-name: hide;
+  -webkit-animation-name: hide1;
+          animation-name: hide1;
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
   -webkit-animation-iteration-count: 1;
@@ -33,8 +40,8 @@
 }
 
 .show-new-item-animation {
-  -webkit-animation-name: show;
-          animation-name: show;
+  -webkit-animation-name: show1;
+          animation-name: show1;
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
   -webkit-animation-iteration-count: 1;
@@ -43,10 +50,14 @@
           animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes hide {
+.newItemInput {
+  z-index: 1000;
+}
+
+@-webkit-keyframes hide1 {
   0% {
     border: 1px solid black;
-    height: calc((500vh/6) - 40px);
+    height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
   }
@@ -58,10 +69,10 @@
   }
 }
 
-@keyframes hide {
+@keyframes hide1 {
   0% {
     border: 1px solid black;
-    height: calc((500vh/6) - 40px);
+    height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
   }
@@ -73,7 +84,7 @@
   }
 }
 
-@-webkit-keyframes show {
+@-webkit-keyframes show1 {
   0% {
     margin: 50%;
     width: 0px;
@@ -82,13 +93,13 @@
   }
   100% {
     border: 1px solid black;
-    height: calc((500vh/6) - 40px);
+    height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
   }
 }
 
-@keyframes show {
+@keyframes show1 {
   0% {
     margin: 50%;
     width: 0px;
@@ -97,7 +108,7 @@
   }
   100% {
     border: 1px solid black;
-    height: calc((500vh/6) - 40px);
+    height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
   }

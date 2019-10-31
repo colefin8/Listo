@@ -1,8 +1,17 @@
-.dropArea {
-    position: fixed;
-    top: 25%;
-    right: 25%;
-    height: 50%;
-    width: 50%;
-    border: 1px solid black
+.dropzone {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  margin: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  background-color: transparent;
+}
+
+.preview {
+  width: 90%;
+  height: 90%;
+  background-size: cover;
 }

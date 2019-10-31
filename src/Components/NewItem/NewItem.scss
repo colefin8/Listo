@@ -1,65 +1,72 @@
 $navheight: (100vh/6);
 
+.exit {
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 
 .popup {
-    position: fixed;
-    margin: 20px;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    justify-items: center;
+  position: fixed;
+  margin: 20px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  justify-items: center;
 }
 
 .hide-new-item-animation {
-    animation-name: hide;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-name: hide1;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .show-new-item-animation {
-    animation-name: show;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-name: show1;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
-@keyframes hide {
-
-    0% {
-        border: 1px solid black;
-        height: calc((500vh/6) - 40px);
-        width: calc(100vw - 40px);
-        font-size: 18px;
-    }
-
-    100% {
-        margin: 50%;
-        width: 0px;
-        height: 0px;
-        font-size: 0;
-    }
+.newItemInput {
+  z-index: 1000;
 }
 
-@keyframes show {
-    0% {
-        margin: 50%;
-        width: 0px;
-        height: 0px;
-        font-size: 0;
+@keyframes hide1 {
+  0% {
+    border: 1px solid black;
+    height: calc((500vh / 6) - 40px);
+    width: calc(100vw - 40px);
+    font-size: 18px;
+  }
 
-    }
+  100% {
+    margin: 50%;
+    width: 0px;
+    height: 0px;
+    font-size: 0;
+  }
+}
 
-    100% {
-        border: 1px solid black;
-        height: calc((500vh/6) - 40px);
-        width: calc(100vw - 40px);
-        font-size: 18px;
+@keyframes show1 {
+  0% {
+    margin: 50%;
+    width: 0px;
+    height: 0px;
+    font-size: 0;
+  }
 
-    }
+  100% {
+    border: 1px solid black;
+    height: calc((500vh / 6) - 40px);
+    width: calc(100vw - 40px);
+    font-size: 18px;
+  }
 }

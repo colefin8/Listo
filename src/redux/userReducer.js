@@ -1,7 +1,7 @@
 const initialState = {
   email: "",
   profile_pic: "",
-  user_id: 0
+  user_id: 1
 };
 
 const UPDATE_USER = "UPDATE_USER";
