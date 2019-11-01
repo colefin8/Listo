@@ -20,5 +20,12 @@ module.exports = {
     let item = await db.get_item(id).catch(err => console.log(err));
     item = item[0];
     res.status(200).send(item);
+  },
+
+  editItem: async (req, res) => {
+    const { id } = req.params;
+    const { name, price, notes, image, link } = req.body;
+    const db = req.app.get("db");
+    db.edit_item([id, name, price, notes, image, link]);
   }
 };

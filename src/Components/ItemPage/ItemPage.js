@@ -25,12 +25,28 @@ function ItemPage(props) {
     }
   };
 
-  const editItem = () => {};
+  const editItem = () => {
+    const item = {
+      name,
+      price,
+      notes,
+      image,
+      link
+    };
+    axios
+      .put(`/api/item/${props.match.params.itemid}`, item)
+      .then(res => {
+        getUser();
+      })
+      .catch(err => console.log(err));
+    changeEdit(!edit);
+  };
 
   const getImage = url => {
     changeImage(url);
   };
-  useEffect(() => {
+
+  const getUser = () => {
     axios
       .get(`/api/item/${props.match.params.itemid}`)
       .then(res => {
@@ -46,19 +62,42 @@ function ItemPage(props) {
         console.log(creatorId);
       })
       .catch(err => console.log(err));
-  }, []);
+  };
+  const deleteItem = () => {};
+
+  useEffect(() => getUser(), []);
   return (
     <section>
       <Nav />
       {edit ? (
+        //IF EDIT IS TRUE DISPLAY VIEW BELOW -- EDIT VIEW
         <>
           <DropArea getImage={getImage} />
           <article className="itemPage">
-            <input className="editInput" name="name" />
-            <input className="editInput" name="price" type="number" />
-
+            <div className="editInput">
+              <span>{`Name: `}</span>
+              <input
+                className="editInput"
+                name="name"
+                value={name}
+                onChange={e => changeName(e.target.value)}
+              />
+            </div>
+            <div className="editInput">
+              <span>{`Price: $`}</span>
+              <input
+                className="editInput"
+                name="price"
+                type="number"
+                value={price}
+                onChange={e => changePrice(e.target.value)}
+              />
+            </div>
             {creatorEmail ? <p>{`Creator: ${creatorEmail}`}</p> : null}
-            <input className="editInput" name="notes" />
+            <div className="editInput">
+              <span>{`Notes: `}</span>
+              <input className="editInput" name="notes" value={notes} />
+            </div>
             <div>
               {" "}
               <p>Drag and drop new picture onto old one to replace</p>
@@ -68,10 +107,14 @@ function ItemPage(props) {
                 src={image ? image : default_icon}
               />
             </div>
-            <input className="editInput" name="link" />
+            <div className="editInput">
+              <span>{"Link: "}</span>
+              <input className="editInput" name="link" value={link} />
+            </div>
           </article>
         </>
       ) : (
+        //IF EDIT  IS FALSE DISPLAY VIEW BELOW (NON-EDIT VIEW)
         <article className="itemPage">
           {name ? <h1>{name}</h1> : null}
           {price ? <p>{`$${price}`}</p> : null}
@@ -86,10 +129,21 @@ function ItemPage(props) {
         </article>
       )}
       <div className="buttons editInput">
-        <button className="editInput" onClick={() => toggleEdit()}>
+        <button
+          className="editInput"
+          onClick={() => {
+            toggleEdit();
+            if (edit) getUser();
+          }}
+        >
           {edit ? "Cancel" : "Edit"}
         </button>
-        <button className="editInput">Delete</button>
+        <button
+          className="editInput"
+          onClick={() => (edit ? editItem() : deleteItem())}
+        >
+          {edit ? "Save" : "Delete"}
+        </button>
       </div>
     </section>
   );

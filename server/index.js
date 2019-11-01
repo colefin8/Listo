@@ -45,6 +45,7 @@ app.get("/api/list/:id", listCtrl.getList);
 app.post("/api/item/add", itemCtrl.add);
 app.get("/api/items/:id", itemCtrl.getItems);
 app.get("/api/item/:id", itemCtrl.getItem);
+app.put("/api/item/:id", itemCtrl.editItem);
 
 //USER ENDPOINTS
 
