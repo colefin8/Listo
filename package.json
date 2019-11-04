@@ -5,13 +5,17 @@
   "main": "server/index.js",
   "proxy": "http://localhost:4040",
   "dependencies": {
-    "amazon-product-api": "^0.4.4",
+    "aws-sdk": "^2.561.0",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "form-data": "^2.5.1",
+    "fs": "0.0.1-security",
     "massive": "^6.1.1",
+    "multer": "^1.4.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-dropzone": "^10.1.10",
@@ -21,7 +25,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
-    "sass": "^1.23.1"
+    "sass": "^1.23.1",
+    "uuid": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,15 +1,46 @@
 require("dotenv").config();
 const express = require("express"),
+  cors = require("cors"),
+  AWS = require("aws-sdk"),
   massive = require("massive"),
   session = require("express-session"),
-  amazon = require("amazon-product-api"),
   { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env,
+  storeCtrl = require("./storageController"),
   authCtrl = require("./authController"),
   listCtrl = require("./listController"),
   itemCtrl = require("./itemController"),
   app = express();
 
-const client = amazon.createClient({});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "public");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + "-" + file.originalname);
+//   }
+// });
+
+AWS.config.getCredentials(function(err) {
+  if (err) console.log(err.stack);
+  // credentials not loaded
+  else {
+    console.log("Access key: accepted");
+    console.log("Secret access key: accepted");
+  }
+});
+
+s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+
+s3.listBuckets(function(err, data) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("buckets:", data.Buckets);
+  }
+});
+
+const uploadParams = { Bucket: "listodevmountain" };
+app.use(cors());
 app.use(express.json());
 app.use(
   session({
@@ -29,6 +60,11 @@ massive(CONNECTION_STRING)
     console.log("database connected");
   })
   .catch(err => console.log(`Database error: ${err}`));
+
+//STORAGE ENDPOINTS
+app.post("/api/photo/add", storeCtrl.add);
+app.post("/api/photo/addURL", storeCtrl.addURL);
+app.post("/api/photo/", storeCtrl.getImage);
 
 //AUTH ENDPOINTS
 app.post("/api/auth/register", authCtrl.register);

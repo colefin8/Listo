@@ -25,7 +25,7 @@ const Nav = () => {
       : showMenu
       ? "dropdown hide-animation"
       : "dropdown show-animation";
-    console.log(name);
+    // console.log(name);
     return name;
   };
 
@@ -33,7 +33,7 @@ const Nav = () => {
     axios
       .get("/api/auth/user")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         const { email, profile_pic, user_id } = res.data;
         changeEmail(email);
         changeProfilePic(profile_pic);

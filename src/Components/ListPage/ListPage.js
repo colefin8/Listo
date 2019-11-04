@@ -47,14 +47,28 @@ function ListPage(props) {
   };
 
   const authentication = () => {
+    console.log(shared);
+    console.log(showMenu);
     return shared ? (
       props.user_id === creatorId ? (
         <section>
-          <form className={addItemClassName()}>New Item Form</form>
           <Nav />
-          <h1>{name}</h1>
-          {`budget: $${budget}`}
-          <Item listId={listId} shared={shared} />
+          {showMenu ? (
+            <>
+              {" "}
+              <h1>{name}</h1>
+              <h1>{`budget: $${budget}`}</h1>
+              <button onClick={toggleAddItem}>Add Item</button>
+              <Item listId={listId} shared={shared} />
+            </>
+          ) : (
+            <NewItem
+              name={addItemClassName()}
+              toggleAddItem={toggleAddItem}
+              listId={listId}
+              userId={props.user_id}
+            />
+          )}
         </section>
       ) : (
         //End of props.user_id == creatorId? first statement
@@ -71,12 +85,7 @@ function ListPage(props) {
       //End of shared? first statement
       <section>
         <Nav />
-        <NewItem
-          name={addItemClassName()}
-          toggleAddItem={toggleAddItem}
-          listId={listId}
-          userId={props.user_id}
-        />
+
         {showMenu ? (
           <>
             {" "}
@@ -85,8 +94,14 @@ function ListPage(props) {
             <button onClick={toggleAddItem}>Add Item</button>
             <Item listId={listId} shared={shared} />
           </>
-        ) : //Just set to return null if the new item menu is open, so nothing is rendered underneath it
-        null}
+        ) : (
+          <NewItem
+            name={addItemClassName()}
+            toggleAddItem={toggleAddItem}
+            listId={listId}
+            userId={props.user_id}
+          />
+        )}
       </section>
     );
     //if shared(private) is false then it can be viewed by anyone
