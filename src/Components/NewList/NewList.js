@@ -33,7 +33,6 @@ const NewList = props => {
           })
           .catch();
   };
-
   return (
     <>
       <Nav />
@@ -62,21 +61,31 @@ const NewList = props => {
               value={budget}
             />
           </div>
-          <div>
-            <span>Make it a shared List? </span>
-            <input
-              name="changeShared"
-              type="checkbox"
-              value={shared}
-              onChange={() => changeShared(!shared)}
-            />
-          </div>
-          {/* link to list page for newly completed list */}
-          {/* <Link> */}
+          {props.user_id === 1 ? (
+            <div>
+              <span>List will be public</span>
+              <input
+                name="changeShared"
+                type="checkbox"
+                value={false}
+                checked
+                readOnly
+              />
+            </div>
+          ) : (
+            <div>
+              <span>Make it a shared List? </span>
+              <input
+                name="changeShared"
+                type="checkbox"
+                value={shared}
+                onChange={() => changeShared(!shared)}
+              />
+            </div>
+          )}
           <button type="submit" onClick={addNewList}>
             Complete
           </button>
-          {/* </Link> */}
         </form>
       </article>
     </>
@@ -84,9 +93,10 @@ const NewList = props => {
 };
 
 const mapStateToProps = reduxState => {
-  const { email } = reduxState;
+  const { email, user_id } = reduxState;
 
   return {
+    user_id,
     email
   };
 };

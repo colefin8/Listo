@@ -1,25 +1,46 @@
-@import '../../sass/resets';
-
-$font:'Raleway',
-sans-serif;
+$font: "Raleway", sans-serif;
 
 $dashboard_height: (100vh * (5/6));
 
 .dashboard {
-    height: $dashboard_height;
-    font-family: $font;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  height: $dashboard_height;
+  font-family: $font;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
+  h1 {
+    font-size: 36px;
+  }
 
-    h1 {
-        font-size: 36px;
-        margin-bottom: 5vh;
-    }
+  p {
+    width: 50vw;
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 1vh;
+    display: inline-block;
+  }
+  .rightText {
+    text-align: right;
+  }
+}
+
+.guestHeader {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: black;
+  margin-bottom: 2vh;
 }
 
 .linkstyle {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }

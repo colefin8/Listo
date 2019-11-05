@@ -6,6 +6,7 @@ import Nav from "../Nav/Nav";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./ListPage.css";
+import NewItem2 from "../NewItem/NewItem2";
 
 function ListPage(props) {
   const [justLoaded, changeJustLoaded] = useState(true);
@@ -15,6 +16,7 @@ function ListPage(props) {
   const [creatorId, changeCreatorId] = useState(0);
   const [listId, changeListId] = useState(0);
   const [shared, changeShared] = useState(false);
+  const [total, changeTotal] = useState(0);
 
   useEffect(() => {
     axios
@@ -32,6 +34,10 @@ function ListPage(props) {
       .catch(err => console.log(err));
   }, [props.match.params.listid]);
 
+  const runningTotal = value => {
+    changeTotal(value);
+  };
+
   const toggleAddItem = () => {
     changeShowMenu(!showMenu);
     changeJustLoaded(false);
@@ -47,43 +53,50 @@ function ListPage(props) {
   };
 
   const authentication = () => {
-    console.log(shared);
-    console.log(showMenu);
+    // console.log(shared);
+    // console.log(showMenu);
     return shared ? (
       props.user_id === creatorId ? (
-        <section>
+        <section className="listPage">
           <Nav />
           {showMenu ? (
             <>
               {" "}
               <h1>{name}</h1>
               <h1>{`budget: $${budget}`}</h1>
+              <h1>{`current total: $${total}`}</h1>
               <button onClick={toggleAddItem}>Add Item</button>
-              <Item listId={listId} shared={shared} />
+              <Item
+                listId={listId}
+                shared={shared}
+                runningTotal={runningTotal}
+              />
             </>
           ) : (
-            <NewItem
-              name={addItemClassName()}
-              toggleAddItem={toggleAddItem}
-              listId={listId}
-              userId={props.user_id}
-            />
-          )}
+            <NewItem2 />
+          )
+          // <NewItem
+          //   name={addItemClassName()}
+          //   toggleAddItem={toggleAddItem}
+          //   listId={listId}
+          //   userId={props.user_id}
+          // />
+          }
         </section>
       ) : (
         //End of props.user_id == creatorId? first statement
-        <>
+        <section className="listPage">
           {" "}
           <h1>This is a private list</h1>
           <h2>Please login to access your private lists</h2>
           <h2>
             <Link to="/">Login screen ---></Link>
           </h2>
-        </>
+        </section>
       )
     ) : (
       //End of shared? first statement
-      <section>
+      <section className="listPage">
         <Nav />
 
         {showMenu ? (
@@ -91,17 +104,20 @@ function ListPage(props) {
             {" "}
             <h1>{name}</h1>
             <h1>{`budget: $${budget}`}</h1>
+            <h1>{`current total: $${total}`}</h1>
             <button onClick={toggleAddItem}>Add Item</button>
-            <Item listId={listId} shared={shared} />
+            <Item listId={listId} shared={shared} runningTotal={runningTotal} />
           </>
         ) : (
-          <NewItem
-            name={addItemClassName()}
-            toggleAddItem={toggleAddItem}
-            listId={listId}
-            userId={props.user_id}
-          />
-        )}
+          <NewItem2 />
+        )
+        // <NewItem
+        //   name={addItemClassName()}
+        //   toggleAddItem={toggleAddItem}
+        //   listId={listId}
+        //   userId={props.user_id}
+        // />
+        }
       </section>
     );
     //if shared(private) is false then it can be viewed by anyone

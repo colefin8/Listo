@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,SAAS,CAAC;EACR,WAAW,EAHN,SAAS,EAAE,UAAU;CAS3B;;AAPD,AAEE,SAFO,CAEP,EAAE,CAAC;EACD,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,MAAM;CACnB",
     "sources": [
         "ListPage.scss"
     ],

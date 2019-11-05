@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 function Item(props) {
   console.log(`Item hit! Props.listId = ${props.listId}`);
+
   const [items, changeItems] = useState([]);
+
   useEffect(() => {
     if (props.listId) {
       axios
@@ -21,26 +23,35 @@ function Item(props) {
 
   const mapped = items.map((e, i) => {
     return (
-      <Link key={`item key:${i}`} to={`/item/${e.item_id}`}>
-        <li>
+      <Link className="link" key={`item key:${i}`} to={`/item/${e.item_id}`}>
+        <li className="listedItem">
           <h1 className="itemName">{e.name}</h1>
-          <div>
-            <span>Price:</span>
-            {`$${e.price}`}
-          </div>
-          <div>
-            <span>Notes: </span>
-            {e.notes}
-          </div>
-          <img alt={`${e.name}`} src={e.image} className="itemImage" />
-          <div>
-            <span>Link to product:</span>
-            {e.link}
+          <div className="info">
+            <div>{`$${e.price}`}</div>
+            <div>
+              <p>Notes: </p>
+              {e.notes}
+            </div>
+            <img
+              alt={`${e.name}`}
+              src={`https://pplistopictures.s3-us-west-1.amazonaws.com/${e.image}`}
+              className="itemImage"
+            />
+            <div>
+              <p>Link to product:</p>
+              {e.link}
+            </div>
           </div>
         </li>
       </Link>
     );
   });
+
+  props.runningTotal(
+    items.reduce((a, e) => {
+      return (a += e.price);
+    }, 0)
+  );
   return <ul>{mapped}</ul>;
 }
 

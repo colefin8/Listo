@@ -25,6 +25,10 @@ function ItemPage(props) {
     }
   };
 
+  useEffect(() => {
+    console.log(`hit!`);
+    getUser();
+  }, []);
   const editItem = () => {
     const item = {
       name,
@@ -59,13 +63,12 @@ function ItemPage(props) {
         changeImage(image);
         changeLink(link);
         changeId(creator_id);
-        console.log(creatorId);
+        console.log(image);
       })
       .catch(err => console.log(err));
   };
   const deleteItem = () => {};
 
-  useEffect(() => getUser(), []);
   return (
     <section>
       <Nav />
@@ -104,7 +107,11 @@ function ItemPage(props) {
               <img
                 alt="item"
                 className="largeItemImage"
-                src={image ? image : default_icon}
+                src={
+                  image
+                    ? `https://listodevmountain.s3-us-west-1.amazonaws.com/${image}`
+                    : default_icon
+                }
               />
             </div>
             <div className="editInput">
@@ -123,7 +130,11 @@ function ItemPage(props) {
           <img
             alt="item"
             className="largeItemImage"
-            src={image ? image : default_icon}
+            src={
+              image
+                ? `https://listodevmountain.s3-us-west-1.amazonaws.com/${image}`
+                : default_icon
+            }
           />
           {link ? <p>{`Link:${link}`}</p> : null}
         </article>

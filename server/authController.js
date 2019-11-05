@@ -17,7 +17,8 @@ module.exports = {
       const hash = bcrypt.hashSync(passwordInput, salt);
       //NEED TO ADD FUNCTIONALITY FOR PROFILE PIC
       const newUser = await db.add_user(emailInput, hash);
-      req.session.user = newUser;
+      req.session.user = newUser[0];
+      console.log(req.session.user);
       res.status(201).send(newUser[0]);
     }
   },

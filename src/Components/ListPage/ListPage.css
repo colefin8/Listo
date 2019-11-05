@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=ListPage.css.map */
+.listPage {
+  font-family: "Raleway", sans-serif;
+}
+
+.listPage h1 {
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=ListPage.css.map */

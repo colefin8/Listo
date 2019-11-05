@@ -1,3 +1,17 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.listedItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
 .itemImage {
   width: 100px;
   height: 50px;

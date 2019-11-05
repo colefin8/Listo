@@ -1,138 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
+/* RGB */
 .authBox {
   width: 100vw;
   height: 100vh;
@@ -149,6 +15,7 @@ table {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  background-color: #545f66;
 }
 
 .centerBox {
@@ -159,6 +26,8 @@ table {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Raleway", sans-serif;
+  color: #d0f4ea;
+  font-size: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,11 +48,41 @@ table {
 }
 
 .centerBox button {
+  color: #d0f4ea;
   font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+}
+
+.centerBox button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.centerBox button:focus {
+  outline: none;
+  text-decoration: none;
+  background-color: #829399;
+}
+
+.inputField {
+  margin-top: 2px;
+  color: #d0f4ea;
+  font-size: 18px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: #d0f4ea;
+  border-style: solid;
+}
+
+.inputField:focus {
+  outline: none;
+  text-decoration: none;
 }
 
 .smallBox {
-  width: 75%;
+  width: 80%;
   height: 33%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -199,8 +98,22 @@ table {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   border-width: 1px 1px 0px 0px;
-  border-color: black;
+  border-color: #d0f4ea;
   border-style: solid;
   border-radius: 0 10% 0 0;
+  background-color: "";
+}
+
+.smallBox p {
+  width: 100%;
+  text-align: center;
+}
+
+header p {
+  margin: 5px;
+}
+
+header p :hover {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=Auth.css.map */

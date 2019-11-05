@@ -1,47 +1,97 @@
-@import '../../sass/resets';
+/* RGB */
+$color1: rgba(84, 95, 102, 1);
+$color2: rgba(130, 147, 153, 1);
+$color3: rgba(208, 244, 234, 1);
+$color4: rgba(8, 96, 95, 1);
+$color5: rgba(23, 126, 137, 1);
 
-$font:'Raleway',
-sans-serif;
+$font: "Raleway", sans-serif;
 
 @mixin flexColumnCenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .authBox {
-    width: 100vw;
-    height: 100vh;
-    @include flexColumnCenter;
-    justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
+  @include flexColumnCenter;
+  justify-content: space-evenly;
+  background-color: $color1;
 }
 
 .centerBox {
-    border: 1px solid black;
-    padding: 20px;
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
+  border: 1px solid black;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  font-family: $font;
+  color: $color3;
+  font-size: 18px;
+  @include flexColumnCenter;
+  justify-content: space-evenly;
+
+  h1 {
+    font-size: 48px;
+  }
+  button {
+    color: $color3;
     font-family: $font;
-    @include flexColumnCenter;
-    justify-content: space-evenly;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
 
-    h1 {
-        font-size: 48px;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
     }
 
-    button {
-        font-family: $font
+    &:focus {
+      outline: none;
+      text-decoration: none;
+      background-color: $color2;
     }
+  }
+}
+
+.inputField {
+  margin-top: 2px;
+  color: $color3;
+  font-size: 18px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: $color3;
+  border-style: solid;
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
 }
 
 .smallBox {
-    width: 75%;
-    height: 33%;
-    @include flexColumnCenter;
-    justify-content: space-evenly;
-    border-width: 1px 1px 0px 0px;
-    border-color: black;
-    border-style: solid;
-    border-radius: 0 10% 0 0;
+  width: 80%;
+  height: 33%;
+  @include flexColumnCenter;
+  justify-content: space-evenly;
+  border-width: 1px 1px 0px 0px;
+  border-color: $color3;
+  border-style: solid;
+  border-radius: 0 10% 0 0;
+  background-color: "";
+
+  p {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+header {
+  p {
+    margin: 5px;
+    :hover {
+      text-decoration: underline;
+    }
+  }
 }

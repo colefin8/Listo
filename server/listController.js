@@ -22,5 +22,17 @@ module.exports = {
     let list = await db.get_list(id).catch(err => console.log(err));
     list = list[0];
     res.status(200).send(list);
+  },
+  getPrivateLists: async (req, res) => {
+    const { id } = req.params;
+    const db = req.app.get("db");
+    let lists = await db.get_private_lists(id).catch(err => console.log(err));
+    res.status(200).send(lists);
+  },
+  getPublicLists: async (req, res) => {
+    const { id } = req.params;
+    const db = req.app.get("db");
+    let lists = await db.get_public_lists(id).catch(err => console.log(err));
+    res.status(200).send(lists);
   }
 };

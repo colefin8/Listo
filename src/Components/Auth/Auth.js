@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { updateUser } from "../../redux/userReducer";
 import { connect } from "react-redux";
 import "./Auth.css";
+import * as d3 from "d3";
 
 const Auth = props => {
   //STATE
@@ -49,16 +50,19 @@ const Auth = props => {
         <h1>Listo</h1>
         <form className="smallBox" onSubmit={e => e.preventDefault()}>
           <div>
-            <span>Email:</span>{" "}
+            <p>{`Email`}</p>
             <input
+              className="inputField"
               name="emailInput"
               value={emailInput}
               onChange={e => handleEmailInput(e.target.value)}
             />
           </div>
           <div>
-            <span>Password:</span>{" "}
+            <p>{`Password`}</p>
             <input
+              className="inputField"
+              type="password"
               name="passwordInput"
               value={passwordInput}
               onChange={e => handlePasswordInput(e.target.value)}
@@ -74,7 +78,10 @@ const Auth = props => {
           </button>
         </form>
         <section className="smallBox">
-          <header>Or start a list right now</header>
+          <header>
+            <p>Don't have an account?</p>
+            <p>Start a list right now</p>
+          </header>
           <Link to="/new-list">
             <button
               onClick={() => {

@@ -1,6 +1,8 @@
+require("dotenv").config();
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const fs = require("fs");
+const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET_NAME } = process.env;
 const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);
@@ -10,31 +12,32 @@ const storage = multer.diskStorage({
 const upload = multer({ storage }).single("file");
 
 module.exports = {
-  addURL: async (req, res) => {
-    upload(req, res, err => {
-      // console.log(req);
-      if (err instanceof multer.MulterError) {
-        return res.status(500).send(err);
-      } else if (err) {
-        return res.status(500).send(err);
-      }
-      s3 = new AWS.S3({ apiVersion: "2006-03-01" });
-      let uploadParams = {
-        Bucket: "listodevmountain",
-        Key: req.body.file,
-        Body: req.body.file
-      };
-      s3.upload(uploadParams, (err, data) => {
-        if (err) {
-          console.log(err);
-        }
-        if (data) {
-          const { Key } = data;
+  signs3: (req, res) => {
+    AWS.config = {
+      accessKeyId: AWS_ACCESS_KEY_ID,
+      secretAccessKey: AWS_SECRET_ACCESS_KEY
+    };
+    const s3 = new AWS.S3();
+    const fileName = req.query["file-name"];
+    const fileType = req.query["file-type"];
+    const params = {
+      Bucket: S3_BUCKET,
+      Key: fileName,
+      Expires: 60,
+      ContentType: fileType,
+      ACL: "public-read"
+    };
 
-          console.log("Success", data);
-          return res.status(200).send(Key);
-        }
-      });
+    s3.getSignedUrl("putObject", params, (err, data) => {
+      if (err) {
+        console.log(err);
+        res.end();
+      }
+      const dataToSend = {
+        signedRequest: data,
+        url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+      };
+      return res.send(dataToSend);
     });
   },
   add: async (req, res) => {
@@ -46,11 +49,14 @@ module.exports = {
         return res.status(500).send(err);
       }
       const fileStream = fs.createReadStream(req.file.path);
+      let fileType = req.file.path.split(`.`);
+      fileType = fileType[fileType.length - 1];
       s3 = new AWS.S3({ apiVersion: "2006-03-01" });
       let uploadParams = {
         ACL: "public-read-write",
-        Bucket: "listodevmountain",
+        Bucket: BUCKET_NAME,
         Key: req.file.originalname,
+        ContentType: `image/${fileType}`,
         Body: fileStream
       };
       s3.upload(uploadParams, (err, data) => {

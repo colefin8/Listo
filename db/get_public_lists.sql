@@ -1,0 +1,1 @@
+SELECT * FROM list WHERE creator_id = $1 AND private = false

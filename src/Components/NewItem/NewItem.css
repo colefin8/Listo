@@ -5,6 +5,10 @@
   top: 10px;
 }
 
+.preview {
+  width: 50vw;
+}
+
 .popup {
   position: fixed;
   margin: 20px;

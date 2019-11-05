@@ -28,61 +28,62 @@ function NewItem(props) {
     );
   };
 
-  const dropImage = url => {
-    const uploadedFile = url;
-    let data = new FormData();
-    console.log(uploadedFile);
-    data.append("file", uploadedFile);
-    axios
-      .post("/api/photo/addURL", data, {
-        headers: {
-          "Content-Type": `multipart/form-data; boundary=${data._boundary}`
-        }
-      })
-      .then(res => {
-        changeKey(res.data);
-        cloudImage();
-      })
-      .catch(err => console.log(`front end: ${err}`));
-  };
+  // const dropImage = url => {
+  //   const uploadedFile = url;
+  //   let data = new FormData();
+  //   console.log(uploadedFile);
+  //   data.append("file", uploadedFile);
+  //   axios
+  //     .post("/api/photo/addURL", data, {
+  //       headers: {
+  //         "Content-Type": `multipart/form-data; boundary=${data._boundary}`
+  //       }
+  //     })
+  //     .then(res => {
+  //       changeKey(res.data);
+  //       cloudImage();
+  //     })
+  //     .catch(err => console.log(`front end: ${err}`));
+  // };
 
-  const fileUpload = () => {
-    const uploadedFile = fileInput.current.files[0];
-    let data = new FormData();
-    // console.log(uploadedFile);
-    data.append("file", uploadedFile);
-    axios
-      .post("/api/photo/add", data, {
-        headers: {
-          "Content-Type": `multipart/form-data; boundary=${data._boundary}`
-        }
-      })
-      .then(res => {
-        console.log(res.data);
-        changeKey(res.data);
-        cloudImage();
-      });
-  };
+  // const fileUpload = () => {
+  //   const uploadedFile = fileInput.current.files[0];
+  //   let data = new FormData();
+  //   // console.log(uploadedFile);
+  //   data.append("file", uploadedFile);
+  //   axios
+  //     .post("/api/photo/add", data, {
+  //       headers: {
+  //         "Content-Type": `multipart/form-data; boundary=${data._boundary}`
+  //       }
+  //     })
+  //     .then(res => {
+  //       console.log(res.data);
+  //       changeKey(res.data);
+  //       cloudImage();
+  //     });
+  // };
 
   const handleAddItem = () => {
-    fileUpload();
+    // fileUpload();
     const item = {
       list_id: props.listId,
       added_by_id: props.userId,
       name,
       price,
-      image: "",
+      image: imageKey,
       notes,
       link
     };
 
-    axios.post("/api/item/add", item);
+    axios.post("/api/item/add", item).then(() => {
+      props.toggleAddItem();
+    });
   };
 
   return (
     <>
       <section className={props.name}>
-        <DropArea getImage={dropImage} />
         <p className="exit" onClick={props.toggleAddItem}>
           X
         </p>
@@ -119,6 +120,7 @@ function NewItem(props) {
           name="imgUpload"
           type="file"
           ref={fileInput}
+          // onChange={fileUpload}
         />
         <div>
           <p>Drag and drop image onto screen</p>
