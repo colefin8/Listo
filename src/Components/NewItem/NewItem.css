@@ -55,7 +55,7 @@
 }
 
 .newItemInput {
-  z-index: 1000;
+  width: 75%;
 }
 
 .preview {

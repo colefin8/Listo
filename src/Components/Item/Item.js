@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./Item.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import defaulticon from "./icons/149092.svg";
 
 function Item(props) {
   const [items, changeItems] = useState([]);
@@ -12,18 +13,21 @@ function Item(props) {
       .delete(`/api/item/${id}`)
       .then(res => console.log(res))
       .catch(err => console.log(err));
+    getItems();
+  };
+
+  const getItems = () => {
+    axios
+      .get(`/api/items/${props.listId}`)
+      .then(res => {
+        changeItems(res.data);
+      })
+      .catch(err => console.log(err));
   };
 
   useEffect(() => {
-    if (props.listId) {
-      axios
-        .get(`/api/items/${props.listId}`)
-        .then(res => {
-          changeItems(res.data);
-        })
-        .catch(err => console.log(err));
-    }
-  }, [props.listId, removeItem]);
+    getItems();
+  }, []);
 
   const mapped = items.map((e, i) => {
     return (
@@ -32,13 +36,17 @@ function Item(props) {
         <div className="info">
           <Link className="link" to={`/item/${e.item_id}`}>
             <div>{`$${e.price}`}</div>
-            <div>
+            <div className="notes">
               <p>Notes: </p>
-              {e.notes}
+              <p>{e.notes}</p>
             </div>
-            <img alt={`${e.name}`} src={e.image} className="itemImage" />
+            <img
+              alt={`${e.name}`}
+              src={e.image || defaulticon}
+              className="itemImage"
+            />
           </Link>
-          <p className="removeButton" onClick={() => removeItem(e.item_id)}>
+          <p className="removeButton" onClick={() => removeItem()}>
             X
           </p>
         </div>

@@ -25,13 +25,14 @@ export default function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case UPDATE_USER + "_FULFILLED":
-      console.log(payload);
-      return {
-        ...state,
-        email: payload.email,
-        profile_pic: payload.profile_pic,
-        user_id: payload.user_id
-      };
+      return payload
+        ? {
+            ...state,
+            email: payload.email,
+            profile_pic: payload.profile_pic,
+            user_id: payload.user_id
+          }
+        : state;
     default:
       return state;
   }

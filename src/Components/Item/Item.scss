@@ -1,8 +1,11 @@
 @import "../../sass/vars";
 .link {
+  width: 95vw;
   text-decoration: none;
   color: $color3;
   background-color: $color1;
+  display: flex;
+  justify-content: space-between;
 }
 
 .listedItem {
@@ -14,8 +17,15 @@
 .info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .itemImage {
-  width: 100px;
-  height: 50px;
+  height: (100vh/12);
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }

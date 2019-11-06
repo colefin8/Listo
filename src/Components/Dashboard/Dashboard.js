@@ -61,7 +61,7 @@ function Dashboard(props) {
         </article>
       ) : (
         <article className="dashboard">
-          <Link className="loadedLinkstyle" to="/new-list">
+          <Link id="loadedLinkstyle" to="/new-list">
             <h1>New List</h1>
           </Link>
           <div>

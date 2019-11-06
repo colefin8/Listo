@@ -39,6 +39,7 @@ function NewItem(props) {
         <div className="newItemInput">
           <span>Item: </span>
           <input
+            className="inputField"
             name="name"
             value={name}
             onChange={e => changeName(e.target.value)}
@@ -47,6 +48,7 @@ function NewItem(props) {
         <div className="newItemInput">
           <span>Price: </span>
           <input
+            className="inputField"
             name="price"
             type="number"
             value={price}
@@ -57,16 +59,18 @@ function NewItem(props) {
         <div className="newItemInput">
           <span>Notes: </span>
           <input
+            className="inputField"
             name="notes"
             type="textarea"
             value={notes}
             onChange={e => changeNotes(e.target.value)}
           />
         </div>
-        <Upload changeImage={changeImage} />
+        <Upload changeImage={changeImage} className="newItemUpload" />
         <div className="newItemInput">
           <span>Link: </span>
           <input
+            className="inputField"
             name="link"
             value={link}
             onChange={e => changeLink(e.target.value)}

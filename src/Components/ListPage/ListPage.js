@@ -58,20 +58,26 @@ function ListPage(props) {
       props.user_id === creatorId ? (
         <section className="listPage">
           {showMenu ? (
-            <div className="menu">
+            <>
               {" "}
-              <h1>{name}</h1>
-              <h1>{`budget: $${budget}`}</h1>
-              <h1>{`current total: $${total}`}</h1>
-              <button className="button" onClick={toggleAddItem}>
-                Add Item
-              </button>
-              <Item
-                listId={listId}
-                shared={shared}
-                runningTotal={runningTotal}
-              />
-            </div>
+              <div className="menu">
+                {" "}
+                <h1>{name}</h1>
+                <h1>{`budget: $${budget}`}</h1>
+                <h1>{`current total: $${total}`}</h1>
+                <button className="button" onClick={toggleAddItem}>
+                  Add Item
+                </button>
+              </div>
+              <div>
+                {" "}
+                <Item
+                  listId={listId}
+                  shared={shared}
+                  runningTotal={runningTotal}
+                />
+              </div>
+            </>
           ) : (
             <NewItem
               name={addItemClassName()}

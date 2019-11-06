@@ -41,7 +41,7 @@ $navheight: (100vh/6);
 }
 
 .newItemInput {
-  z-index: 1000;
+  width: 75%;
 }
 
 .preview {
@@ -61,6 +61,20 @@ $navheight: (100vh/6);
   }
   &:focus {
     font-weight: bolder;
+  }
+}
+
+.inputField {
+  margin-top: 2px;
+  color: $color3;
+  font-size: 18px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: $color3;
+  border-style: solid;
+  &:focus {
+    outline: none;
+    text-decoration: none;
   }
 }
 
