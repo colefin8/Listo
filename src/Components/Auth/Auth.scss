@@ -1,16 +1,18 @@
-/* RGB */
-$color1: rgba(84, 95, 102, 1);
-$color2: rgba(130, 147, 153, 1);
-$color3: rgba(208, 244, 234, 1);
-$color4: rgba(8, 96, 95, 1);
-$color5: rgba(23, 126, 137, 1);
-
-$font: "Raleway", sans-serif;
+@import "../../sass/vars";
 
 @mixin flexColumnCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.circle {
+  background-color: $color2;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: -100px;
 }
 
 .authBox {
@@ -79,7 +81,6 @@ $font: "Raleway", sans-serif;
   border-color: $color3;
   border-style: solid;
   border-radius: 0 10% 0 0;
-  background-color: "";
 
   p {
     width: 100%;

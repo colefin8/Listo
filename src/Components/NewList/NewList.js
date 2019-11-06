@@ -11,7 +11,7 @@ const NewList = props => {
   const [budget, changeBudget] = useState("");
 
   const addNewList = () => {
-    console.log(`firing, props.email: ${props.email}`);
+    console.log(`firing, ${(budget, listName)}`);
     props.email
       ? axios
           .post("/api/list/add", {
@@ -26,12 +26,16 @@ const NewList = props => {
           })
           .catch(err => console.log(err))
       : axios
-          .post("/api/list/addguest")
+          .post("/api/list/addguest", {
+            listName,
+            budget
+          })
           .then(res => {
+            console.log(res);
             const { list_id } = res.data;
             props.history.push(`/list/${list_id}`);
           })
-          .catch();
+          .catch(err => console.log(err));
   };
   return (
     <>

@@ -1,16 +1,21 @@
-$font: "Raleway", sans-serif;
+@import "../../sass/vars";
 
 $dashboard_height: (100vh * (5/6));
 
 .dashboard {
+  color: $color3;
   height: $dashboard_height;
   font-family: $font;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: flex-start;
+  background-color: $color1;
 
   h1 {
+    color: $color3;
     font-size: 36px;
+    margin-bottom: 30px;
   }
 
   p {
@@ -32,6 +37,7 @@ $dashboard_height: (100vh * (5/6));
 }
 
 .listItem {
+  color: $color3;
   display: flex;
   justify-content: space-between;
   border-width: 0 0 1px 0;
@@ -42,5 +48,4 @@ $dashboard_height: (100vh * (5/6));
 
 .linkstyle {
   text-decoration: none;
-  color: black;
 }

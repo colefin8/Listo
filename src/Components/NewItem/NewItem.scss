@@ -1,3 +1,4 @@
+@import "../../sass/vars";
 $navheight: (100vh/6);
 
 .exit {
@@ -41,6 +42,26 @@ $navheight: (100vh/6);
 
 .newItemInput {
   z-index: 1000;
+}
+
+.preview {
+  width: 75vw;
+}
+
+#file {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.fileInput {
+  border: 1px solid;
+  &:hover {
+    font-weight: bolder;
+  }
+  &:focus {
+    font-weight: bolder;
+  }
 }
 
 @keyframes hide1 {

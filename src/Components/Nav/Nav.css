@@ -1,4 +1,5 @@
 .navMenuContainer {
+  color: #d0f4ea;
   border-bottom: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,6 +8,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #545f66;
+}
+
+.navMenuContainer h1 {
+  font-size: 24px;
 }
 
 .navBar {
@@ -14,13 +20,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 10px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px;
+  align-items: center;
   height: 16.66667vh;
   font-family: "Raleway", sans-serif;
   -webkit-box-sizing: border-box;

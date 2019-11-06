@@ -1,4 +1,12 @@
-/* RGB */
+.circle {
+  background-color: #9db8aa;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: -100px;
+}
+
 .authBox {
   width: 100vw;
   height: 100vh;
@@ -63,7 +71,7 @@
 .centerBox button:focus {
   outline: none;
   text-decoration: none;
-  background-color: #829399;
+  background-color: #9db8aa;
 }
 
 .inputField {
@@ -101,7 +109,6 @@
   border-color: #d0f4ea;
   border-style: solid;
   border-radius: 0 10% 0 0;
-  background-color: "";
 }
 
 .smallBox p {

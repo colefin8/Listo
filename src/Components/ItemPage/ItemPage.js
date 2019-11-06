@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Nav from "../Nav/Nav";
 import DropArea from "../DropArea/DropArea";
 import axios from "axios";
-import default_icon from "./icons/default_icon.png";
+import default_icon from "./icons/149092.svg";
 import "./ItemPage.css";
 
 function ItemPage(props) {
@@ -107,11 +107,7 @@ function ItemPage(props) {
               <img
                 alt="item"
                 className="largeItemImage"
-                src={
-                  image
-                    ? `https://listodevmountain.s3-us-west-1.amazonaws.com/${image}`
-                    : default_icon
-                }
+                src={image ? image : default_icon}
               />
             </div>
             <div className="editInput">

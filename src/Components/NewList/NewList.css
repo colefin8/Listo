@@ -1,4 +1,6 @@
 .newListWizard {
+  background-color: #545f66;
+  color: #d0f4ea;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,7 +23,7 @@
   height: 50%;
   width: 75%;
   border-width: 1px 1px 0px 0px;
-  border-color: black;
+  border-color: #d0f4ea;
   border-style: solid;
   border-radius: 0 10% 0 0;
   display: -webkit-box;

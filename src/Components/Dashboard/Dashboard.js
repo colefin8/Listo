@@ -43,10 +43,14 @@ function Dashboard(props) {
           <Link className="linkstyle" to="/new-list">
             <h1>New List</h1>
           </Link>
-          <h1>Recent Personal Lists</h1>
-          <List array={privateArray} />
-          <h1>Recent Group Lists</h1>
-          <List array={publicArray} />
+          <div>
+            <h1>Recent Personal Lists</h1>
+            <List array={privateArray} />
+          </div>
+          <div>
+            <h1>Recent Group Lists</h1>
+            <List array={publicArray} />
+          </div>
         </article>
       )}
     </>

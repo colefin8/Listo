@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,SAAS,CAAC;EACR,WAAW,EAHN,SAAS,EAAE,UAAU;CAS3B;;AAPD,AAEE,SAFO,CAEP,EAAE,CAAC;EACD,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,MAAM;CACnB",
+    "mappings": "AAIA,AAAA,SAAS,CAAC;EACR,WAAW,ECCN,SAAS,EAAE,UAAU;EDA1B,gBAAgB,ECNT,OAAO;EDOd,MAAM,EAAE,KAAK;CAMd;;AATD,AAIE,SAJO,CAIP,EAAE,CAAC;EACD,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,MAAM;CACnB",
     "sources": [
-        "ListPage.scss"
+        "ListPage.scss",
+        "../../sass/_vars.scss"
     ],
     "names": [],
     "file": "ListPage.css"

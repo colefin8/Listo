@@ -32,11 +32,7 @@ function Item(props) {
               <p>Notes: </p>
               {e.notes}
             </div>
-            <img
-              alt={`${e.name}`}
-              src={`https://pplistopictures.s3-us-west-1.amazonaws.com/${e.image}`}
-              className="itemImage"
-            />
+            <img alt={`${e.name}`} src={e.image} className="itemImage" />
             <div>
               <p>Link to product:</p>
               {e.link}

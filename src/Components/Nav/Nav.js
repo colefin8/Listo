@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/userReducer";
 import NavMenu from "../NavMenu/NavMenu";
-import usericon from "./icons/usericon.jpg";
+import usericon from "./icons/usericon.svg";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./Nav.css";
 

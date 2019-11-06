@@ -1,7 +1,11 @@
-$font: "Raleway", sans-serif;
+@import "../../sass/vars";
+
+$dashboard_height: (100vh * (5/6));
 
 .listPage {
   font-family: $font;
+  background-color: $color1;
+  height: 100vh;
   h1 {
     font-size: 36px;
     width: 100%;

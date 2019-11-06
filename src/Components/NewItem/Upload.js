@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { v4 as randomString } from "uuid";
+import "./NewItem.css";
 
-const NewItem2 = () => {
-  const [isUploading, changeUploading] = useState(false);
+const Upload = props => {
   const [url, changeURL] = useState("http://via.placeholder.com/450x450");
 
-  const getSignedRequest = ([file]) => {
+  const getSignedRequest = () => {
+    let file = document.getElementById("file").files[0];
     console.log(file);
-    changeUploading(true);
     const fileName = `${randomString()}-${file.name.replace(/\s/g, "-")}`;
     axios
       .get("/api/signs3", {
@@ -35,12 +35,12 @@ const NewItem2 = () => {
     axios
       .put(signedRequest, file, options)
       .then(res => {
-        changeUploading(false);
         changeURL(url);
+        props.changeImage(url);
         console.log(res.data);
+        console.log(url);
       })
       .catch(err => {
-        changeUploading(false);
         console.log(
           `ERROR: forbidden bc of some weird permissions thing \n${err}`
         );
@@ -49,9 +49,18 @@ const NewItem2 = () => {
 
   return (
     <div>
-      <div>gotta put a drop zone here</div>
+      <img alt="" src={url} className="preview" />
+      <input
+        type="file"
+        id="file"
+        accept="image/png, image/jpeg"
+        onChange={() => getSignedRequest()}
+      />
+      <label htmlFor="file" class="fileInput">
+        Choose a file
+      </label>
     </div>
   );
 };
 
-export default NewItem2;
+export default Upload;

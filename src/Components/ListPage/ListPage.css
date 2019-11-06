@@ -1,5 +1,7 @@
 .listPage {
   font-family: "Raleway", sans-serif;
+  background-color: #545f66;
+  height: 100vh;
 }
 
 .listPage h1 {

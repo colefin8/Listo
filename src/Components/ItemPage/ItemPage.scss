@@ -1,9 +1,11 @@
+@import "../../sass/vars";
 .largeItemImage {
   width: 74vw;
   height: 37vw;
 }
 
 .itemPage {
+  background-color: $color1;
   width: 100vw;
   height: calc((500vh / 6) - 100px);
   display: flex;
@@ -17,6 +19,7 @@
 }
 
 .buttons {
+  background-color: $color1;
   height: 100px;
   width: 100%;
   display: flex;

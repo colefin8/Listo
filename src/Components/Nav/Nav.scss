@@ -1,15 +1,23 @@
+@import "../../sass/vars";
+
 $font: "Raleway", sans-serif;
 
 .navMenuContainer {
+  color: $color3;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
+  background-color: $color1;
+  h1 {
+    font-size: 24px;
+  }
 }
 
 .navBar {
   width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   padding: 10px;
   align-items: center;
   $navHeight: (100vh/6);

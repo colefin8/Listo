@@ -6,7 +6,7 @@ import Nav from "../Nav/Nav";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./ListPage.css";
-import NewItem2 from "../NewItem/NewItem2";
+import SampleSVG from "../D3/SampleSVG";
 
 function ListPage(props) {
   const [justLoaded, changeJustLoaded] = useState(true);
@@ -53,8 +53,6 @@ function ListPage(props) {
   };
 
   const authentication = () => {
-    // console.log(shared);
-    // console.log(showMenu);
     return shared ? (
       props.user_id === creatorId ? (
         <section className="listPage">
@@ -73,15 +71,13 @@ function ListPage(props) {
               />
             </>
           ) : (
-            <NewItem2 />
-          )
-          // <NewItem
-          //   name={addItemClassName()}
-          //   toggleAddItem={toggleAddItem}
-          //   listId={listId}
-          //   userId={props.user_id}
-          // />
-          }
+            <NewItem
+              name={addItemClassName()}
+              toggleAddItem={toggleAddItem}
+              listId={listId}
+              userId={props.user_id}
+            />
+          )}
         </section>
       ) : (
         //End of props.user_id == creatorId? first statement
@@ -109,20 +105,35 @@ function ListPage(props) {
             <Item listId={listId} shared={shared} runningTotal={runningTotal} />
           </>
         ) : (
-          <NewItem2 />
-        )
-        // <NewItem
-        //   name={addItemClassName()}
-        //   toggleAddItem={toggleAddItem}
-        //   listId={listId}
-        //   userId={props.user_id}
-        // />
-        }
+          <NewItem
+            name={addItemClassName()}
+            toggleAddItem={toggleAddItem}
+            listId={listId}
+            userId={props.user_id}
+          />
+        )}
       </section>
     );
     //if shared(private) is false then it can be viewed by anyone
   };
-  return <>{authentication()}</>;
+  return (
+    <>
+      {authentication()}
+      {props.user_id === 1 ? (
+        <div>
+          <p>Copy this link to return to this list.</p>
+          <p>
+            Because it is a guest list anyone with this link can edit the list!
+          </p>
+          <input
+            readOnly
+            value={`localhost:3000/#/${props.match.url}`}
+            onFocus={e => e.target.select()}
+          />
+        </div>
+      ) : null}
+    </>
+  );
 }
 
 const mapStateToProps = reduxState => {

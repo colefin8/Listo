@@ -14,14 +14,16 @@ const upload = multer({ storage }).single("file");
 module.exports = {
   signs3: (req, res) => {
     AWS.config = {
+      region: "us-east-2",
       accessKeyId: AWS_ACCESS_KEY_ID,
       secretAccessKey: AWS_SECRET_ACCESS_KEY
     };
-    const s3 = new AWS.S3();
+    const s3 = new AWS.S3({ signatureVersion: "v4" });
     const fileName = req.query["file-name"];
     const fileType = req.query["file-type"];
+    console.log(fileName, fileType);
     const params = {
-      Bucket: S3_BUCKET,
+      Bucket: BUCKET_NAME,
       Key: fileName,
       Expires: 60,
       ContentType: fileType,
@@ -35,7 +37,7 @@ module.exports = {
       }
       const dataToSend = {
         signedRequest: data,
-        url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+        url: `https://${BUCKET_NAME}.s3.amazonaws.com/${fileName}`
       };
       return res.send(dataToSend);
     });
@@ -51,7 +53,7 @@ module.exports = {
       const fileStream = fs.createReadStream(req.file.path);
       let fileType = req.file.path.split(`.`);
       fileType = fileType[fileType.length - 1];
-      s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+      s3 = new AWS.S3({ apiVersion: "2006-03-01", signatureVersion: "v4" });
       let uploadParams = {
         ACL: "public-read-write",
         Bucket: BUCKET_NAME,

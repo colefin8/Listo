@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC,GAAG,CAAC;EACX,IAAI,EAAE,eAAe;EACrB,gBAAgB,EAAE,SAAS;EAC3B,UAAU,EAAE,KAAK;EACjB,OAAO,EAAE,GAAG;EACZ,MAAM,EAAE,GAAG;EACX,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "SampleSVG.scss"
+    ],
+    "names": [],
+    "file": "SampleSVG.css"
+}

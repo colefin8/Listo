@@ -58,6 +58,28 @@
   z-index: 1000;
 }
 
+.preview {
+  width: 75vw;
+}
+
+#file {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.fileInput {
+  border: 1px solid;
+}
+
+.fileInput:hover {
+  font-weight: bolder;
+}
+
+.fileInput:focus {
+  font-weight: bolder;
+}
+
 @-webkit-keyframes hide1 {
   0% {
     border: 1px solid black;

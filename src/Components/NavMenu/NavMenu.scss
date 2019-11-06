@@ -1,7 +1,13 @@
+@import "../../sass/vars";
+
 .dropdown {
+  background-color: $color1;
   height: 0;
   overflow: hidden;
-  color: black;
+  color: $color3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .profilePic {

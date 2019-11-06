@@ -1,11 +1,14 @@
+@import "../../sass/vars";
 .link {
   text-decoration: none;
-  color: black;
+  color: $color3;
+  background-color: $color1;
 }
 
 .listedItem {
   display: flex;
   flex-direction: column;
+  background-color: $color1;
 }
 
 .info {

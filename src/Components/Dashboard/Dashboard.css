@@ -1,4 +1,5 @@
 .dashboard {
+  color: #d0f4ea;
   height: 83.33333vh;
   font-family: "Raleway", sans-serif;
   display: -webkit-box;
@@ -8,15 +9,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  background-color: #545f66;
 }
 
 .dashboard h1 {
+  color: #d0f4ea;
   font-size: 36px;
+  margin-bottom: 30px;
 }
 
 .dashboard p {
@@ -38,6 +43,7 @@
 }
 
 .listItem {
+  color: #d0f4ea;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,6 +58,5 @@
 
 .linkstyle {
   text-decoration: none;
-  color: black;
 }
 /*# sourceMappingURL=Dashboard.css.map */

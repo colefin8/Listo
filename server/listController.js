@@ -14,7 +14,15 @@ module.exports = {
     res.status(200).send(newListId);
   },
   addGuest: async (req, res) => {
-    //req.body should contain list name, shared boolean, and budget
+    //req.body should contain list name, and budget
+    const { listName, budget } = req.body;
+    console.log(listName, budget);
+    const db = req.app.get("db");
+    let newListId = await db
+      .add_list_guest([listName, budget])
+      .catch(err => err);
+    newListId = newListId[0];
+    res.status(200).send(newListId);
   },
   getList: async (req, res) => {
     const { id } = req.params;
