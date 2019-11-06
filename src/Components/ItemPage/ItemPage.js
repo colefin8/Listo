@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Nav from "../Nav/Nav";
+import { withRouter } from "react-router-dom";
 import DropArea from "../DropArea/DropArea";
 import axios from "axios";
 import default_icon from "./icons/149092.svg";
@@ -46,10 +46,6 @@ function ItemPage(props) {
     changeEdit(!edit);
   };
 
-  const getImage = url => {
-    changeImage(url);
-  };
-
   const getUser = () => {
     axios
       .get(`/api/item/${props.match.params.itemid}`)
@@ -61,7 +57,7 @@ function ItemPage(props) {
         changeEmail(email);
         changeNotes(notes);
         changeImage(image);
-        changeLink(link);
+        changeLink(link || null);
         changeId(creator_id);
         console.log(image);
       })
@@ -71,11 +67,9 @@ function ItemPage(props) {
 
   return (
     <section>
-      <Nav />
       {edit ? (
         //IF EDIT IS TRUE DISPLAY VIEW BELOW -- EDIT VIEW
         <>
-          <DropArea getImage={getImage} />
           <article className="itemPage">
             <div className="editInput">
               <span>{`Name: `}</span>
@@ -126,11 +120,7 @@ function ItemPage(props) {
           <img
             alt="item"
             className="largeItemImage"
-            src={
-              image
-                ? `https://listodevmountain.s3-us-west-1.amazonaws.com/${image}`
-                : default_icon
-            }
+            src={image ? image : default_icon}
           />
           {link ? <p>{`Link:${link}`}</p> : null}
         </article>
@@ -161,4 +151,4 @@ const mapStateToProps = reduxState => {
   return { user_id };
 };
 
-export default connect(mapStateToProps)(ItemPage);
+export default connect(mapStateToProps)(withRouter(ItemPage));

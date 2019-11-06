@@ -15,7 +15,6 @@ $dashboard_height: (100vh * (5/6));
   h1 {
     color: $color3;
     font-size: 36px;
-    margin-bottom: 30px;
   }
 
   p {
@@ -31,9 +30,8 @@ $dashboard_height: (100vh * (5/6));
 }
 
 .guestHeader {
-  width: 100%;
+  width: 100vw;
   text-align: center;
-  margin-bottom: 5vh;
 }
 
 .listItem {
@@ -47,5 +45,9 @@ $dashboard_height: (100vh * (5/6));
 }
 
 .linkstyle {
+  text-decoration: none;
+}
+
+.loadedLinkstyle {
   text-decoration: none;
 }

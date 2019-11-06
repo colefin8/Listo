@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { updateUser } from "../../redux/userReducer";
 import { connect } from "react-redux";
 import "./Auth.css";
-import * as d3 from "d3";
 
 const Auth = props => {
   //STATE
@@ -19,6 +18,14 @@ const Auth = props => {
       easing: "easeInOutQuad",
       delay: anime.stagger(150)
     });
+    anime({
+      targets: ".circle",
+      translateX: 8,
+      easing: "easeInOutSine",
+      delay: anime.stagger(50),
+      direction: "alternate",
+      loop: true
+    });
   }, []);
 
   //INPUT HANDLERS
@@ -29,18 +36,6 @@ const Auth = props => {
   const handlePasswordInput = value => {
     changePasswordInput(value);
     // console.log(`password: ${value}`);
-  };
-
-  const animate = id => {
-    const target = document.getElementById(id);
-    console.log("fired animate");
-    console.log(target);
-    anime({
-      targets: target,
-      translateX: "75vw",
-      easing: "spring(1, 50, 11, 2)",
-      direction: "forward"
-    });
   };
 
   //SUBMIT METHODS
@@ -70,36 +65,36 @@ const Auth = props => {
       <div className="centerBox">
         <h1>Listo</h1>
         <form className="smallBox" onSubmit={e => e.preventDefault()}>
-          <div>
-            <div id="1" className="circle"></div>
+          <div className="row">
+            <div className="circle"></div>
             <p>{`Email`}</p>
-            <input
-              onClick={() => animate("1")}
-              className="inputField"
-              name="emailInput"
-              value={emailInput}
-              onChange={e => handleEmailInput(e.target.value)}
-            />
           </div>
-          <div>
-            <div id="2" className="circle"></div>
+          <input
+            className="inputField"
+            name="emailInput"
+            value={emailInput}
+            onChange={e => handleEmailInput(e.target.value)}
+          />
+
+          <div className="row">
+            <div className="circle"></div>
             <p>{`Password`}</p>
-            <input
-              onClick={() => animate("2")}
-              className="inputField"
-              type="password"
-              name="passwordInput"
-              value={passwordInput}
-              onChange={e => handlePasswordInput(e.target.value)}
-            />
           </div>
-          <div>
+          <input
+            className="inputField"
+            type="password"
+            name="passwordInput"
+            value={passwordInput}
+            onChange={e => handlePasswordInput(e.target.value)}
+          />
+
+          <div className="row">
             <div className="circle"></div>
             <button type="submit" onClick={login}>
               Login
             </button>
           </div>
-          <div>
+          <div className="row">
             <div className="circle"></div>
             <button type="submit" onClick={register}>
               Register
@@ -112,7 +107,7 @@ const Auth = props => {
 
             <p>Start a list right now</p>
           </header>
-          <div>
+          <div className="row">
             <div className="circle"></div>
             <Link to="/new-list">
               <button

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const initialState = {
   email: "",
   profile_pic: "",
@@ -6,18 +8,24 @@ const initialState = {
 
 const UPDATE_USER = "UPDATE_USER";
 
-export function updateUser(email, profile_pic, user_id) {
+export function updateUser() {
+  const data = axios
+    .get("/api/auth/user")
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => console.log(err));
   return {
     type: UPDATE_USER,
-    payload: { email, profile_pic, user_id }
+    payload: data
   };
 }
 
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
-  console.log(payload);
   switch (type) {
-    case UPDATE_USER:
+    case UPDATE_USER + "_FULFILLED":
+      console.log(payload);
       return {
         ...state,
         email: payload.email,

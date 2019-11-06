@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Upload from "./Upload";
+import Upload from "../Upload/Upload";
 import "./NewItem.css";
 
 function NewItem(props) {
@@ -22,9 +22,12 @@ function NewItem(props) {
       link
     };
 
-    axios.post("/api/item/add", item).then(() => {
-      props.toggleAddItem();
-    });
+    axios
+      .post("/api/item/add", item)
+      .then(() => {
+        props.toggleAddItem();
+      })
+      .catch(err => console.log(err));
   };
 
   return (

@@ -1,0 +1,41 @@
+#file {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.fileInput {
+  color: #333d51;
+  background-color: #f4f3ea;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.fileInput:hover {
+  font-weight: bolder;
+}
+
+.fileInput:focus {
+  font-weight: bolder;
+}
+
+.profilePic {
+  height: 20vh;
+  width: 40vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=Upload.css.map */

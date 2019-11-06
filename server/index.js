@@ -4,28 +4,13 @@ const express = require("express"),
   AWS = require("aws-sdk"),
   massive = require("massive"),
   session = require("express-session"),
-  {
-    SERVER_PORT,
-    SESSION_SECRET,
-    CONNECTION_STRING,
-    BUCKET_NAME,
-    AWS_SECRET_ACCESS_KEY,
-    AWS_ACCESS_KEY_ID
-  } = process.env,
+  { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env,
   storeCtrl = require("./storageController"),
   authCtrl = require("./authController"),
   listCtrl = require("./listController"),
   itemCtrl = require("./itemController"),
+  userCtrl = require("./userController"),
   app = express();
-
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "public");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, Date.now() + "-" + file.originalname);
-//   }
-// });
 
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
@@ -73,8 +58,10 @@ app.post("/api/item/add", itemCtrl.add);
 app.get("/api/items/:id", itemCtrl.getItems);
 app.get("/api/item/:id", itemCtrl.getItem);
 app.put("/api/item/:id", itemCtrl.editItem);
+app.delete("/api/item/:id", itemCtrl.deleteItem);
 
 //USER ENDPOINTS
+app.put("/api/user/:id", userCtrl.editUser);
 
 const port = SERVER_PORT || 4040;
 app.listen(port, () => console.log(`Server running on port ${port}`));

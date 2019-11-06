@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import NewItem from "../NewItem/NewItem";
 import Item from "../Item/Item";
 import Nav from "../Nav/Nav";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./ListPage.css";
-import SampleSVG from "../D3/SampleSVG";
 
 function ListPage(props) {
+  console.log(props);
   const [justLoaded, changeJustLoaded] = useState(true);
   const [showMenu, changeShowMenu] = useState(true);
   const [name, changeName] = useState("");
@@ -32,14 +33,14 @@ function ListPage(props) {
         changeShared(shared);
       })
       .catch(err => console.log(err));
-  }, [props.match.params.listid]);
+  }, []);
 
   const runningTotal = value => {
     changeTotal(value);
   };
 
   const toggleAddItem = () => {
-    changeShowMenu(!showMenu);
+    changeShowMenu(prev => !prev);
     changeJustLoaded(false);
   };
 
@@ -56,20 +57,21 @@ function ListPage(props) {
     return shared ? (
       props.user_id === creatorId ? (
         <section className="listPage">
-          <Nav />
           {showMenu ? (
-            <>
+            <div className="menu">
               {" "}
               <h1>{name}</h1>
               <h1>{`budget: $${budget}`}</h1>
               <h1>{`current total: $${total}`}</h1>
-              <button onClick={toggleAddItem}>Add Item</button>
+              <button className="button" onClick={toggleAddItem}>
+                Add Item
+              </button>
               <Item
                 listId={listId}
                 shared={shared}
                 runningTotal={runningTotal}
               />
-            </>
+            </div>
           ) : (
             <NewItem
               name={addItemClassName()}
@@ -93,17 +95,17 @@ function ListPage(props) {
     ) : (
       //End of shared? first statement
       <section className="listPage">
-        <Nav />
-
         {showMenu ? (
-          <>
+          <div className="menu">
             {" "}
             <h1>{name}</h1>
             <h1>{`budget: $${budget}`}</h1>
             <h1>{`current total: $${total}`}</h1>
-            <button onClick={toggleAddItem}>Add Item</button>
+            <button className="button" onClick={toggleAddItem}>
+              Add Item
+            </button>
             <Item listId={listId} shared={shared} runningTotal={runningTotal} />
-          </>
+          </div>
         ) : (
           <NewItem
             name={addItemClassName()}
@@ -142,4 +144,4 @@ const mapStateToProps = reduxState => {
   return { user_id };
 };
 
-export default connect(mapStateToProps)(ListPage);
+export default connect(mapStateToProps)(withRouter(ListPage));

@@ -1,6 +1,7 @@
 @import "../../sass/vars";
 
 $font: "Raleway", sans-serif;
+$navHeight: (100vh/6);
 
 .navMenuContainer {
   color: $color3;
@@ -18,10 +19,12 @@ $font: "Raleway", sans-serif;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
-  align-items: center;
-  $navHeight: (100vh/6);
   height: $navHeight;
   font-family: $font;
   box-sizing: border-box;
+
+  .profilePic {
+    width: 25vw;
+    height: $navHeight;
+  }
 }

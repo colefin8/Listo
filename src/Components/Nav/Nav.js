@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/userReducer";
 import NavMenu from "../NavMenu/NavMenu";
@@ -7,12 +8,10 @@ import usericon from "./icons/usericon.svg";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./Nav.css";
 
-const Nav = () => {
+const Nav = props => {
   //STATE
   const [justLoaded, changeJustLoaded] = useState(true);
   const [showMenu, changeShowMenu] = useState(true);
-  const [email, changeEmail] = useState("");
-  const [profilePic, changeProfilePic] = useState("");
 
   const toggleMenu = () => {
     changeShowMenu(!showMenu);
@@ -30,16 +29,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("/api/auth/user")
-      .then(res => {
-        // console.log(res);
-        const { email, profile_pic, user_id } = res.data;
-        changeEmail(email);
-        changeProfilePic(profile_pic);
-        updateUser(email, profile_pic, user_id);
-      })
-      .catch(err => console.log(err));
+    props.updateUser();
   }, []);
 
   return (
@@ -48,12 +38,14 @@ const Nav = () => {
       <header className="navBar">
         {" "}
         <img
+          onClick={() => {
+            props.history.push("/user");
+          }}
           alt="profile"
           className="profilePic"
-          src={profilePic ? profilePic : usericon}
+          src={props.profile_pic ? props.profile_pic : usericon}
         />{" "}
-        <h1> {email ? `${email}` : `guest`}</h1>{" "}
-        <i className="fas fa-bars fa-3x" onClick={toggleMenu}></i>{" "}
+        <i className="fas fa-bars fa-4x" onClick={toggleMenu}></i>{" "}
       </header>{" "}
       <NavMenu className={navClass()} />{" "}
     </div>
@@ -77,4 +69,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Nav);
+)(withRouter(Nav));

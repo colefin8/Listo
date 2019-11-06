@@ -27,5 +27,14 @@ module.exports = {
     const { name, price, notes, image, link } = req.body;
     const db = req.app.get("db");
     db.edit_item([id, name, price, notes, image, link]);
+    res.sendStatus(200);
+  },
+
+  deleteItem: async (req, res) => {
+    const { id } = req.params;
+    const db = req.app.get("db");
+    db.delete_item(id).then(() => {
+      res.sendStatus(200);
+    });
   }
 };

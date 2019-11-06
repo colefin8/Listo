@@ -5,41 +5,44 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Item(props) {
-  console.log(`Item hit! Props.listId = ${props.listId}`);
-
   const [items, changeItems] = useState([]);
+
+  const removeItem = id => {
+    axios
+      .delete(`/api/item/${id}`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
 
   useEffect(() => {
     if (props.listId) {
       axios
         .get(`/api/items/${props.listId}`)
         .then(res => {
-          console.log(res.data);
           changeItems(res.data);
         })
         .catch(err => console.log(err));
     }
-  }, [props.listId]);
+  }, [props.listId, removeItem]);
 
   const mapped = items.map((e, i) => {
     return (
-      <Link className="link" key={`item key:${i}`} to={`/item/${e.item_id}`}>
-        <li className="listedItem">
-          <h1 className="itemName">{e.name}</h1>
-          <div className="info">
+      <li className="listedItem" key={`item key:${i}`}>
+        <h1 className="itemName">{e.name}</h1>
+        <div className="info">
+          <Link className="link" to={`/item/${e.item_id}`}>
             <div>{`$${e.price}`}</div>
             <div>
               <p>Notes: </p>
               {e.notes}
             </div>
             <img alt={`${e.name}`} src={e.image} className="itemImage" />
-            <div>
-              <p>Link to product:</p>
-              {e.link}
-            </div>
-          </div>
-        </li>
-      </Link>
+          </Link>
+          <p className="removeButton" onClick={() => removeItem(e.item_id)}>
+            X
+          </p>
+        </div>
+      </li>
     );
   });
 

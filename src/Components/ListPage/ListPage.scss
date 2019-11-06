@@ -6,9 +6,34 @@ $dashboard_height: (100vh * (5/6));
   font-family: $font;
   background-color: $color1;
   height: 100vh;
+  color: $color3;
   h1 {
     font-size: 36px;
     width: 100%;
     text-align: center;
   }
+  button {
+    color: $color1;
+    font-family: $font;
+    font-size: 18px;
+    border: none;
+    background-color: $color3;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+      text-decoration: none;
+      background-color: $color2;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

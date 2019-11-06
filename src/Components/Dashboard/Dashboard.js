@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Nav from "../Nav/Nav";
 import List from "../List/List";
 import "./Dashboard.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import anime from "animejs";
 
 function Dashboard(props) {
   const [publicArray, changePublic] = useState([]);
   const [privateArray, changePrivate] = useState([]);
 
   useEffect(() => {
+    console.log(props.user_id);
     axios
       .get(`api/lists/private/${props.user_id}`)
       .then(res => {
@@ -23,24 +24,44 @@ function Dashboard(props) {
         changePublic(res.data);
       })
       .catch(err => console.log(err));
-  }, []);
+    anime({
+      targets: ".linkstyle",
+      easing: "easeInSine",
+      translateY: ["90vh", 0],
+      opacity: [0, 1],
+      duration: 1000,
+      delay: anime.stagger(250),
+      direction: "forward"
+    });
+    anime(
+      {
+        targets: ".linkstyle",
+        easing: "easeInOutSine",
+        translateY: [0.5, 0],
+        translateX: [0.5, 0],
+        delay: anime.stagger(2000),
+        direction: "alternate",
+        loop: true
+      },
+      "+2000"
+    );
+  }, [props.user_id]);
 
   return (
     <>
-      <Nav />
       {props.user_id === 1 ? (
         <article className="dashboard">
           <Link className="linkstyle guestHeader" to="/new-list">
             <h1>New List</h1>
           </Link>
-          <h1 className="guestHeader">Currently logged in as Guest</h1>
+          <h1 className="guestHeader">Logged in as Guest</h1>
           <Link className="linkstyle guestHeader" to="/">
             <h1>Return to login screen?</h1>
           </Link>
         </article>
       ) : (
         <article className="dashboard">
-          <Link className="linkstyle" to="/new-list">
+          <Link className="loadedLinkstyle" to="/new-list">
             <h1>New List</h1>
           </Link>
           <div>

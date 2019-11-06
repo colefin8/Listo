@@ -4,7 +4,7 @@
 }
 
 .itemPage {
-  background-color: #545f66;
+  background-color: #333d51;
   width: 100vw;
   height: calc((500vh / 6) - 100px);
   display: -webkit-box;
@@ -26,7 +26,7 @@
 }
 
 .buttons {
-  background-color: #545f66;
+  background-color: #333d51;
   height: 100px;
   width: 100%;
   display: -webkit-box;

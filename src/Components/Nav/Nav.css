@@ -1,5 +1,5 @@
 .navMenuContainer {
-  color: #d0f4ea;
+  color: #f4f3ea;
   border-bottom: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,7 +8,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #545f66;
+  background-color: #333d51;
 }
 
 .navMenuContainer h1 {
@@ -25,11 +25,14 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px;
-  align-items: center;
   height: 16.66667vh;
   font-family: "Raleway", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.navBar .profilePic {
+  width: 25vw;
+  height: 16.66667vh;
 }
 /*# sourceMappingURL=Nav.css.map */

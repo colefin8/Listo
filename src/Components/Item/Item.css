@@ -1,7 +1,7 @@
 .link {
   text-decoration: none;
-  color: #d0f4ea;
-  background-color: #545f66;
+  color: #f4f3ea;
+  background-color: #333d51;
 }
 
 .listedItem {
@@ -12,7 +12,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #545f66;
+  background-color: #333d51;
 }
 
 .info {

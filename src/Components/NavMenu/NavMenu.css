@@ -1,8 +1,8 @@
 .dropdown {
-  background-color: #545f66;
+  background-color: #333d51;
   height: 0;
   overflow: hidden;
-  color: #d0f4ea;
+  color: #f4f3ea;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

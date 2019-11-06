@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Nav from "../Nav/Nav";
 import { connect } from "react-redux";
 // import { Link } from "react-router-dom";
 import "./NewList.css";
@@ -39,7 +38,6 @@ const NewList = props => {
   };
   return (
     <>
-      <Nav />
       <article className="newListWizard">
         <h1>New List</h1>
         <form

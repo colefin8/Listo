@@ -1,0 +1,38 @@
+.userMenu {
+  background-color: #333d51;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userMenu button {
+  font-family: "Raleway", sans-serif;
+  font-size: 36px;
+  background-color: #f4f3ea;
+  color: #333d51;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.userMenu h1 {
+  padding: 3px;
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color: #f4f3ea;
+  background-color: #333d51;
+  margin-top: 5px;
+}
+/*# sourceMappingURL=User.css.map */

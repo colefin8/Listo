@@ -1,0 +1,1 @@
+delete from item where item_id = $1;

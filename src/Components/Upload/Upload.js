@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { v4 as randomString } from "uuid";
-import "./NewItem.css";
+import usericon from "./icons/usericon.svg";
+import "./Upload.css";
 
 const Upload = props => {
-  const [url, changeURL] = useState("http://via.placeholder.com/450x450");
+  const [url, changeURL] = useState(usericon);
 
   const getSignedRequest = () => {
     let file = document.getElementById("file").files[0];
@@ -48,7 +49,7 @@ const Upload = props => {
   };
 
   return (
-    <div>
+    <div className={props.className || ""}>
       <img alt="" src={url} className="preview" />
       <input
         type="file"
@@ -56,7 +57,7 @@ const Upload = props => {
         accept="image/png, image/jpeg"
         onChange={() => getSignedRequest()}
       />
-      <label htmlFor="file" class="fileInput">
+      <label htmlFor="file" className="fileInput">
         Choose a file
       </label>
     </div>
