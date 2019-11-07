@@ -83,9 +83,13 @@
   cursor: pointer;
 }
 
-.row button:focus {
+.row button:active {
   outline: none;
   text-decoration: none;
+}
+
+.row button:focus {
+  outline: none;
 }
 
 .inputField {

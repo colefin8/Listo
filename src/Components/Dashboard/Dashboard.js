@@ -4,7 +4,6 @@ import "./Dashboard.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import anime from "animejs";
 
 function Dashboard(props) {
   const [publicArray, changePublic] = useState([]);

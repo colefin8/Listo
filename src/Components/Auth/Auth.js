@@ -40,25 +40,29 @@ const Auth = props => {
 
   //SUBMIT METHODS
   const register = () => {
-    axios
-      .post("/api/auth/register", { emailInput, passwordInput })
-      .then(res => {
-        const { user_id, profile_pic, email } = res.data;
-        props.updateUser(email, profile_pic, user_id);
-        props.history.push("/dashboard");
-      })
-      .catch(err => console.log(err, props));
+    if (passwordInput && emailInput) {
+      axios
+        .post("/api/auth/register", { emailInput, passwordInput })
+        .then(res => {
+          const { user_id, profile_pic, email } = res.data;
+          props.updateUser(email, profile_pic, user_id);
+          props.history.push("/dashboard");
+        })
+        .catch(err => console.log(err, props));
+    }
   };
 
   const login = () => {
-    axios
-      .post("/api/auth/login", { emailInput, passwordInput })
-      .then(res => {
-        const { user_id, profile_pic, email } = res.data;
-        props.updateUser(email, profile_pic, user_id);
-        props.history.push("/dashboard");
-      })
-      .catch(err => console.log(err, props));
+    if (passwordInput && emailInput) {
+      axios
+        .post("/api/auth/login", { emailInput, passwordInput })
+        .then(res => {
+          const { user_id, profile_pic, email } = res.data;
+          props.updateUser(email, profile_pic, user_id);
+          props.history.push("/dashboard");
+        })
+        .catch(err => console.log(err, props));
+    }
   };
   return (
     <div className="authBox">

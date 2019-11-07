@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/userReducer";
@@ -27,9 +26,9 @@ const Nav = props => {
     // console.log(name);
     return name;
   };
-
+  const { updateUser } = props;
   useEffect(() => {
-    props.updateUser();
+    updateUser();
   }, []);
 
   return (

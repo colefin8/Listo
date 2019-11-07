@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import NewItem from "../NewItem/NewItem";
 import Item from "../Item/Item";
-import Nav from "../Nav/Nav";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
