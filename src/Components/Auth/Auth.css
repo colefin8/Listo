@@ -57,7 +57,16 @@
           box-sizing: border-box;
 }
 
-.centerBox button {
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row button {
   color: #333d51;
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -69,24 +78,14 @@
   border-radius: 10px;
 }
 
-.centerBox button:hover {
+.row button:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-.centerBox button:focus {
+.row button:focus {
   outline: none;
   text-decoration: none;
-  background-color: #d3ac2b;
-}
-
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .inputField {

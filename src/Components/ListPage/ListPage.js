@@ -24,7 +24,6 @@ function ListPage(props) {
       .get(`api/list/${props.match.params.listid}`)
       .then(res => {
         const { list_id, creator_id, budget, name } = res.data;
-        console.log(creator_id);
         const shared = res.data.private;
         changeName(name);
         changeBudget(budget);
@@ -33,7 +32,7 @@ function ListPage(props) {
         changeShared(shared);
       })
       .catch(err => console.log(err));
-  }, []);
+  });
 
   const runningTotal = value => {
     changeTotal(value);

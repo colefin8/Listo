@@ -38,9 +38,9 @@ const Nav = props => {
       <header className="navBar">
         {" "}
         <img
-          onClick={() => {
-            props.history.push("/user");
-          }}
+          onClick={() =>
+            props.user_id === 1 ? null : props.history.push("/user")
+          }
           alt="profile"
           className="profilePic"
           src={props.profile_pic ? props.profile_pic : usericon}

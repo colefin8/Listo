@@ -1,4 +1,5 @@
 .newListWizard {
+  font-size: 18px;
   background-color: #333d51;
   color: #f4f3ea;
   display: -webkit-box;
@@ -19,7 +20,17 @@
   width: 100vw;
 }
 
+.newListWizard h1 {
+  font-size: 24px;
+}
+
+.newListWizard p {
+  text-align: center;
+}
+
 .newListForm {
+  margin-top: 20px;
+  padding-top: 10px;
   height: 50%;
   width: 75%;
   border-width: 1px 1px 0px 0px;
@@ -38,5 +49,35 @@
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.wizardInput {
+  margin-top: 10px;
+  color: #f4f3ea;
+  font-size: 18px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: #f4f3ea;
+  border-style: solid;
+  font-size: 18px;
+}
+
+.wizardInput:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.wizardButton {
+  background-color: #f4f3ea;
+  font-size: 18px;
+  color: #333d51;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.wizardButton:focus {
+  outline: none;
+  text-decoration: none;
 }
 /*# sourceMappingURL=NewList.css.map */

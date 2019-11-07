@@ -5,7 +5,8 @@
   color: $color3;
   background-color: $color1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .listedItem {
@@ -23,9 +24,6 @@
   height: (100vh/12);
 }
 
-.notes {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.removeButton {
+  margin-right: 10px;
 }

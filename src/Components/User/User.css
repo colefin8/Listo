@@ -1,6 +1,7 @@
 .userMenu {
   background-color: #333d51;
   height: 100vh;
+  font-family: "Raleway", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,6 +17,14 @@
           align-items: center;
 }
 
+.userMenu .backButton {
+  color: #f4f3ea;
+  font-size: 24px;
+  position: fixed;
+  top: 3vh;
+  left: 3vh;
+}
+
 .userMenu button {
   font-family: "Raleway", sans-serif;
   font-size: 36px;
@@ -26,13 +35,37 @@
   border-radius: 10px;
 }
 
+.userMenu button:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.userMenu button:hover {
+  text-decoration: underline;
+}
+
 .userMenu h1 {
   padding: 3px;
   font-family: "Raleway", sans-serif;
-  font-size: 24px;
+  font-size: 36px;
   text-align: center;
   color: #f4f3ea;
   background-color: #333d51;
   margin-top: 5px;
+}
+
+.userEditInput {
+  margin-top: 2px;
+  color: #f4f3ea;
+  font-size: 36px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: #f4f3ea;
+  border-style: solid;
+}
+
+.userEditInput:focus {
+  outline: none;
+  text-decoration: none;
 }
 /*# sourceMappingURL=User.css.map */

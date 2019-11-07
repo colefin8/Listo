@@ -32,14 +32,10 @@ function Item(props) {
   const mapped = items.map((e, i) => {
     return (
       <li className="listedItem" key={`item key:${i}`}>
-        <h1 className="itemName">{e.name}</h1>
         <div className="info">
           <Link className="link" to={`/item/${e.item_id}`}>
+            <div>{e.name}</div>
             <div>{`$${e.price}`}</div>
-            <div className="notes">
-              <p>Notes: </p>
-              <p>{e.notes}</p>
-            </div>
             <img
               alt={`${e.name}`}
               src={e.image || defaulticon}

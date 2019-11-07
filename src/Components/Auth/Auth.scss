@@ -39,6 +39,11 @@
     font-size: 48px;
     box-sizing: border-box;
   }
+}
+
+.row {
+  display: flex;
+  align-items: center;
   button {
     color: $color1;
     font-family: $font;
@@ -57,14 +62,8 @@
     &:focus {
       outline: none;
       text-decoration: none;
-      background-color: $color2;
     }
   }
-}
-
-.row {
-  display: flex;
-  align-items: center;
 }
 
 .inputField {

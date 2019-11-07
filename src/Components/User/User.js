@@ -6,6 +6,7 @@ import usericon from "./icons/usericon.svg";
 import axios from "axios";
 
 const User = props => {
+  console.log(props);
   const [toggleEdit, changeToggleEdit] = useState(false);
   const [previewImg, changePreview] = useState(props.profile_pic || usericon);
   const [email, changeEmail] = useState(props.email || "none");
@@ -13,20 +14,27 @@ const User = props => {
   const editUser = () => {
     axios.put(`/api/user/${props.user_id}`, { email, image: previewImg });
   };
-
-  return (
+  return props.user_id === 1 ? (
+    <>{props.history.push("/")}</>
+  ) : (
     <div className="userMenu">
       {toggleEdit ? (
         <>
+          <p className="backButton">Back</p>
           <div>
             <h1>Email:</h1>
-            <input value={email} onChange={e => changeEmail(e.target.value)} />
+            <input
+              className="userEditInput"
+              value={email}
+              onChange={e => changeEmail(e.target.value)}
+            />
           </div>
           <Upload className="profilePic" changeImage={changePreview} />
           <button onClick={() => editUser}>Save</button>
         </>
       ) : (
         <>
+          <p className="backButton">Back</p>
           <div>
             <h1>Email:</h1>
             <h1>{email}</h1>

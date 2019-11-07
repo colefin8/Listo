@@ -42,5 +42,11 @@ module.exports = {
     const db = req.app.get("db");
     let lists = await db.get_public_lists(id).catch(err => console.log(err));
     res.status(200).send(lists);
+  },
+  getAllLists: async (req, res) => {
+    const { id } = req.params;
+    const db = req.app.get("db");
+    let lists = await db.get_all_lists(id).catch(err => console.log(err));
+    res.status(200).send(lists);
   }
 };

@@ -11,6 +11,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  text-align: right;
 }
 
 .profilePic {
@@ -38,6 +41,11 @@
           animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: #f4f3ea;
 }
 
 @-webkit-keyframes hide {

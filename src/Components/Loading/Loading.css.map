@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,CAAC;EACJ,GAAG,EAAE,kBAAkB;EACvB,KAAK,EAAE,kBAAkB;EACzB,QAAQ,EAAE,KAAK;EACf,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAChB;;AAED,AAAA,WAAW,CAAC;EACV,MAAM,EAAE,GAAG;EACX,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,gBAAgB,EChBT,OAAO;EDiBd,aAAa,EAAE,GAAG;CACnB",
+    "sources": [
+        "Loading.scss",
+        "../../sass/_vars.scss"
+    ],
+    "names": [],
+    "file": "Loading.css"
+}

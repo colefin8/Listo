@@ -1,0 +1,19 @@
+@import "../../sass/vars";
+
+.grid {
+  top: calc(50vh - 110px);
+  right: calc(50vw - 110px);
+  position: fixed;
+  height: 220px;
+  width: 220px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gridSphere {
+  margin: 2px;
+  height: 40px;
+  width: 40px;
+  background-color: $color1;
+  border-radius: 50%;
+}

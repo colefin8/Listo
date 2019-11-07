@@ -8,6 +8,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: $font;
+  font-size: 18px;
 }
 
 .profilePic {
@@ -27,6 +29,11 @@
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: $color3;
 }
 
 @keyframes hide {

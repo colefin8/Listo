@@ -7,6 +7,7 @@ import ListPage from "./Components/ListPage/ListPage";
 import ItemPage from "./Components/ItemPage/ItemPage";
 import NewList from "./Components/NewList/NewList";
 import User from "./Components/User/User";
+import Lists from "./Components/Lists/Lists";
 
 export default (
   <Switch>
@@ -56,5 +57,6 @@ export default (
       }}
     />
     <Route path="/user" component={User} />
+    <Route path="/lists/:userid" component={Lists} />
   </Switch>
 );

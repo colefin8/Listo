@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import DropArea from "../DropArea/DropArea";
 import axios from "axios";
 import default_icon from "./icons/149092.svg";
 import "./ItemPage.css";

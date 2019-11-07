@@ -1,0 +1,21 @@
+.grid {
+  top: calc(50vh - 110px);
+  right: calc(50vw - 110px);
+  position: fixed;
+  height: 220px;
+  width: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gridSphere {
+  margin: 2px;
+  height: 40px;
+  width: 40px;
+  background-color: #333d51;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=Loading.css.map */

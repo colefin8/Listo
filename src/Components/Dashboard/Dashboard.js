@@ -11,7 +11,6 @@ function Dashboard(props) {
   const [privateArray, changePrivate] = useState([]);
 
   useEffect(() => {
-    console.log(props.user_id);
     axios
       .get(`api/lists/private/${props.user_id}`)
       .then(res => {
@@ -24,28 +23,7 @@ function Dashboard(props) {
         changePublic(res.data);
       })
       .catch(err => console.log(err));
-    anime({
-      targets: ".linkstyle",
-      easing: "easeInSine",
-      translateY: ["90vh", 0],
-      opacity: [0, 1],
-      duration: 1000,
-      delay: anime.stagger(250),
-      direction: "forward"
-    });
-    anime(
-      {
-        targets: ".linkstyle",
-        easing: "easeInOutSine",
-        translateY: [0.5, 0],
-        translateX: [0.5, 0],
-        delay: anime.stagger(2000),
-        direction: "alternate",
-        loop: true
-      },
-      "+2000"
-    );
-  }, [props.user_id]);
+  }, []);
 
   return (
     <>
@@ -61,7 +39,7 @@ function Dashboard(props) {
         </article>
       ) : (
         <article className="dashboard">
-          <Link id="loadedLinkstyle" to="/new-list">
+          <Link className="linkstyle" to="/new-list">
             <h1>New List</h1>
           </Link>
           <div>

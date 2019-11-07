@@ -47,16 +47,18 @@ const NewList = props => {
           }}
         >
           <div>
-            <span>List Name: </span>
+            <p>List Name</p>
             <input
+              className="wizardInput"
               name="listName"
               onChange={e => changeListName(e.target.value)}
               value={listName}
             />
           </div>
           <div>
-            <span>Budget: </span>
+            <p>Budget</p>
             <input
+              className="wizardInput"
               name="budget"
               type="number"
               onChange={e => changeBudget(e.target.value)}
@@ -85,7 +87,7 @@ const NewList = props => {
               />
             </div>
           )}
-          <button type="submit" onClick={addNewList}>
+          <button className="wizardButton" type="submit" onClick={addNewList}>
             Complete
           </button>
         </form>

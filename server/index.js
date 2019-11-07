@@ -50,6 +50,7 @@ app.get("/api/auth/user", authCtrl.getUser);
 app.post("/api/list/add", listCtrl.add);
 app.post("/api/list/addguest", listCtrl.addGuest);
 app.get("/api/list/:id", listCtrl.getList);
+app.get("/api/lists/:id", listCtrl.getAllLists);
 app.get("/api/lists/private/:id", listCtrl.getPrivateLists);
 app.get("/api/lists/public/:id", listCtrl.getPublicLists);
 

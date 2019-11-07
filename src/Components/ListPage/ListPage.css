@@ -31,10 +31,12 @@
 }
 
 .menu {
-  height: 33.33333vh;
+  height: 16.66667vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 20px;
+  padding-top: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
