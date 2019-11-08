@@ -3,6 +3,7 @@
 $dashboard_height: (100vh * (5/6));
 
 .dashboard {
+  padding-left: 2vw;
   color: $color3;
   height: $dashboard_height;
   font-family: $font;
@@ -18,7 +19,7 @@ $dashboard_height: (100vh * (5/6));
   }
 
   p {
-    width: 50vw;
+    width: 46vw;
     text-align: left;
     font-size: 24px;
     margin-bottom: 1vh;
@@ -40,8 +41,8 @@ $dashboard_height: (100vh * (5/6));
   justify-content: space-between;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: black;
-  margin-bottom: 2vh;
+  border-color: $color3;
+  margin-top: 2vh;
 }
 
 .linkstyle {

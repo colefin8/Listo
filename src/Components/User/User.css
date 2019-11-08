@@ -25,6 +25,13 @@
   left: 3vh;
 }
 
+.userMenu .profilePic {
+  max-height: 20vh;
+  max-width: 60vw;
+  height: auto;
+  width: auto;
+}
+
 .userMenu button {
   font-family: "Raleway", sans-serif;
   font-size: 36px;
@@ -55,6 +62,9 @@
 }
 
 .userEditInput {
+  font-family: "Raleway", sans-serif;
+  width: 80vw;
+  text-align: center;
   margin-top: 2px;
   color: #f4f3ea;
   font-size: 36px;

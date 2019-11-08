@@ -12,7 +12,9 @@ const User = props => {
   const [email, changeEmail] = useState(props.email || "none");
 
   const editUser = () => {
-    axios.put(`/api/user/${props.user_id}`, { email, image: previewImg });
+    axios
+      .put(`/api/user/${props.user_id}`, { email, image: previewImg })
+      .then(() => changeToggleEdit(!toggleEdit));
   };
   return props.user_id === 1 ? (
     <>{props.history.push("/")}</>
@@ -20,7 +22,9 @@ const User = props => {
     <div className="userMenu">
       {toggleEdit ? (
         <>
-          <p className="backButton">Back</p>
+          <p className="backButton" onClick={() => props.history.goBack()}>
+            Back
+          </p>
           <div>
             <h1>Email:</h1>
             <input
@@ -30,11 +34,13 @@ const User = props => {
             />
           </div>
           <Upload className="profilePic" changeImage={changePreview} />
-          <button onClick={() => editUser}>Save</button>
+          <button onClick={() => editUser()}>Save</button>
         </>
       ) : (
         <>
-          <p className="backButton">Back</p>
+          <p className="backButton" onClick={() => props.history.goBack()}>
+            Back
+          </p>
           <div>
             <h1>Email:</h1>
             <h1>{email}</h1>

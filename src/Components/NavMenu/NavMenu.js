@@ -41,6 +41,9 @@ function NavMenu(props) {
           <Link className="menuLink" to="/dashboard">
             <i className="fas fa-home fa-3x"></i>
           </Link>
+          <Link className="menuLink" to={`/lists/${props.user_id}`}>
+            <i className="fas fa-list fa-3x"></i>
+          </Link>
           <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
         </nav>
       );
@@ -64,6 +67,15 @@ function NavMenu(props) {
           </Link>
           <Link className="menuLink" to={`/lists/${props.user_id}`}>
             <i className="fas fa-list fa-3x"></i>
+          </Link>
+          <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+        </nav>
+      );
+    } else if (path === "lists") {
+      return (
+        <nav className={props.className}>
+          <Link className="menuLink" to="/dashboard">
+            <i className="fas fa-home fa-3x"></i>
           </Link>
           <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
         </nav>

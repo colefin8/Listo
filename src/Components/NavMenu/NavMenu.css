@@ -13,12 +13,6 @@
           align-items: center;
   font-family: "Raleway", sans-serif;
   font-size: 18px;
-  text-align: right;
-}
-
-.profilePic {
-  width: 100px;
-  height: 100px;
 }
 
 .hide-animation {

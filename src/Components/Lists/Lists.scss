@@ -5,10 +5,41 @@
   font-family: $font;
   font-size: 24px;
   color: $color3;
-  height: 100vh;
   width: 100vw;
   background-color: $color1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  .leftText {
+    text-align: left;
+    width: 38vw;
+  }
+  .centerText {
+    text-align: center;
+    width: 38vw;
+  }
+  .rightText {
+    text-align: right;
+    width: 24vw;
+  }
+}
+
+.listsPageItem {
+  background-color: $color1;
+  width: 95vw;
+  min-height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color3;
+}
+
+.listsLinks {
+  text-decoration: none;
+  color: $color3;
+  &:visited {
+    text-decoration: none;
+  }
 }

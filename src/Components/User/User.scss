@@ -17,6 +17,13 @@
     left: 3vh;
   }
 
+  .profilePic {
+    max-height: 20vh;
+    max-width: 60vw;
+    height: auto;
+    width: auto;
+  }
+
   button {
     font-family: $font;
     font-size: 36px;
@@ -46,6 +53,9 @@
 }
 
 .userEditInput {
+  font-family: $font;
+  width: 80vw;
+  text-align: center;
   margin-top: 2px;
   color: $color3;
   font-size: 36px;

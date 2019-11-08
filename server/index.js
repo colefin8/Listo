@@ -36,8 +36,6 @@ massive(CONNECTION_STRING)
   .catch(err => console.log(`Database error: ${err}`));
 
 //STORAGE ENDPOINTS
-app.post("/api/photo/add", storeCtrl.add);
-app.post("/api/photo/", storeCtrl.getImage);
 app.get("/api/signs3", storeCtrl.signs3);
 
 //AUTH ENDPOINTS
@@ -63,6 +61,7 @@ app.delete("/api/item/:id", itemCtrl.deleteItem);
 
 //USER ENDPOINTS
 app.put("/api/user/:id", userCtrl.editUser);
+app.get(`/api/users/:id`, userCtrl.getUsers);
 
 const port = SERVER_PORT || 4040;
 app.listen(port, () => console.log(`Server running on port ${port}`));

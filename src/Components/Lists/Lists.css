@@ -3,17 +3,60 @@
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   color: #f4f3ea;
-  height: 100vh;
   width: 100vw;
   background-color: #333d51;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.listsPage .leftText {
+  text-align: left;
+  width: 38vw;
+}
+
+.listsPage .centerText {
+  text-align: center;
+  width: 38vw;
+}
+
+.listsPage .rightText {
+  text-align: right;
+  width: 24vw;
+}
+
+.listsPageItem {
+  background-color: #333d51;
+  width: 95vw;
+  min-height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #f4f3ea;
+}
+
+.listsLinks {
+  text-decoration: none;
+  color: #f4f3ea;
+}
+
+.listsLinks:visited {
+  text-decoration: none;
 }
 /*# sourceMappingURL=Lists.css.map */

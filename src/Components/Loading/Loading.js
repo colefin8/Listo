@@ -8,19 +8,19 @@ class Loading extends Component {
       .timeline({ targets: ".gridSphere", loop: true, direction: "alternate" })
       .add({
         scale: [
-          { value: 0.5, easing: "easeOutSine", duration: 400 },
+          { value: 0.5, easing: "easeInOutSine", duration: 400 },
           { value: 1, easing: "easeInOutQuad", duration: 1200 }
         ],
-        delay: anime.stagger(150, { grid: [5, 5], from: "center" }),
+        delay: anime.stagger(150, { grid: [5, 10], from: "center" }),
         direction: "alternate"
       })
       .add(
         {
           backgroundColor: [
-            { value: "#f4f3ea", easing: "easeOutQuad", duration: 400 },
-            { value: "#d3ac2b", easing: "easeInOutSine", duration: 1200 }
+            { value: "#f4f3ea", easing: "easeInOutSine", duration: 400 },
+            { value: "#d3ac2b", easing: "easeInOutQuad", duration: 1200 }
           ],
-          delay: anime.stagger(150, { grid: [5, 5], from: "center" }),
+          delay: anime.stagger(150, { grid: [5, 10], from: "center" }),
           direction: "alternate"
         },
         "-=1600"
@@ -28,8 +28,33 @@ class Loading extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="loading">
         <div className="grid">
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
+          <div className="gridSphere"></div>
           <div className="gridSphere"></div>
           <div className="gridSphere"></div>
           <div className="gridSphere"></div>

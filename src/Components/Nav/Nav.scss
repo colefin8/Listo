@@ -4,6 +4,8 @@ $font: "Raleway", sans-serif;
 $navHeight: (100vh/6);
 
 .navMenuContainer {
+  position: sticky;
+  top: 0;
   color: $color3;
   border-bottom: 1px solid black;
   display: flex;
@@ -24,7 +26,9 @@ $navHeight: (100vh/6);
   box-sizing: border-box;
 
   .profilePic {
-    width: 25vw;
-    height: $navHeight;
+    max-width: 25vw;
+    max-height: $navHeight;
+    width: auto;
+    height: auto;
   }
 }

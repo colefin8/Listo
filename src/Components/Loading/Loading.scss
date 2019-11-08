@@ -1,17 +1,24 @@
 @import "../../sass/vars";
 
+.loading {
+  height: (500vh/6);
+  background-color: $color1;
+  width: 100vw;
+}
+
 .grid {
-  top: calc(50vh - 110px);
-  right: calc(50vw - 110px);
-  position: fixed;
-  height: 220px;
-  width: 220px;
+  bottom: calc(25% - 250px);
+  left: calc(50% - 125px);
+  position: relative;
+  height: 500px;
+  width: 250px;
   display: flex;
   flex-wrap: wrap;
+  background-color: $color1;
 }
 
 .gridSphere {
-  margin: 2px;
+  margin: 5px;
   height: 40px;
   width: 40px;
   background-color: $color1;

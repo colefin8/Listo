@@ -1,4 +1,5 @@
 .dashboard {
+  padding-left: 2vw;
   color: #f4f3ea;
   height: 83.33333vh;
   font-family: "Raleway", sans-serif;
@@ -24,7 +25,7 @@
 }
 
 .dashboard p {
-  width: 50vw;
+  width: 46vw;
   text-align: left;
   font-size: 24px;
   margin-bottom: 1vh;
@@ -50,15 +51,11 @@
           justify-content: space-between;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: black;
-  margin-bottom: 2vh;
+  border-color: #f4f3ea;
+  margin-top: 2vh;
 }
 
 .linkstyle {
-  text-decoration: none;
-}
-
-#loaded {
   text-decoration: none;
 }
 /*# sourceMappingURL=Dashboard.css.map */

@@ -41,53 +41,5 @@ module.exports = {
       };
       return res.send(dataToSend);
     });
-  },
-  add: async (req, res) => {
-    upload(req, res, err => {
-      // console.log(req);
-      if (err instanceof multer.MulterError) {
-        return res.status(500).send(err);
-      } else if (err) {
-        return res.status(500).send(err);
-      }
-      const fileStream = fs.createReadStream(req.file.path);
-      let fileType = req.file.path.split(`.`);
-      fileType = fileType[fileType.length - 1];
-      s3 = new AWS.S3({ apiVersion: "2006-03-01", signatureVersion: "v4" });
-      let uploadParams = {
-        ACL: "public-read-write",
-        Bucket: BUCKET_NAME,
-        Key: req.file.originalname,
-        ContentType: `image/${fileType}`,
-        Body: fileStream
-      };
-      s3.upload(uploadParams, (err, data) => {
-        if (err) {
-          console.log(err);
-        }
-        if (data) {
-          const { Key } = data;
-
-          // console.log("Success", data);
-          return res.status(200).send(Key);
-        }
-      });
-    });
-  },
-  getImage: async (req, res) => {
-    const { data } = req.body;
-    // console.log(`key: ${data}`);
-    const params = {
-      Bucket: "listodevmountain",
-      Key: data
-    };
-    s3 = new AWS.S3({ apiVersion: "2006-03-01" });
-    s3.getObject(params, (err, data) => {
-      if (err) console.log(err);
-      else {
-        // console.log(data);
-        res.status(200).send(data);
-      }
-    });
   }
 };

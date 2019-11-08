@@ -1,18 +1,25 @@
+.loading {
+  height: 83.33333vh;
+  background-color: #333d51;
+  width: 100vw;
+}
+
 .grid {
-  top: calc(50vh - 110px);
-  right: calc(50vw - 110px);
-  position: fixed;
-  height: 220px;
-  width: 220px;
+  bottom: calc(25% - 250px);
+  left: calc(50% - 125px);
+  position: relative;
+  height: 500px;
+  width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  background-color: #333d51;
 }
 
 .gridSphere {
-  margin: 2px;
+  margin: 5px;
   height: 40px;
   width: 40px;
   background-color: #333d51;

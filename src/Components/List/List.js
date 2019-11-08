@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const List = props => {
   return !props.array[0] ? (
-    <p className="hereIAm">No lists of this type have been made yet!</p>
+    <p>No lists of this type have been made yet!</p>
   ) : (
     props.array.map((e, i) => {
       return (

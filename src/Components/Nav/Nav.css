@@ -1,4 +1,7 @@
 .navMenuContainer {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   color: #f4f3ea;
   border-bottom: 1px solid black;
   display: -webkit-box;
@@ -32,7 +35,9 @@
 }
 
 .navBar .profilePic {
-  width: 25vw;
-  height: 16.66667vh;
+  max-width: 25vw;
+  max-height: 16.66667vh;
+  width: auto;
+  height: auto;
 }
 /*# sourceMappingURL=Nav.css.map */
