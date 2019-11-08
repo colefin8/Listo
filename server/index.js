@@ -61,7 +61,8 @@ app.delete("/api/item/:id", itemCtrl.deleteItem);
 
 //USER ENDPOINTS
 app.put("/api/user/:id", userCtrl.editUser);
-app.get(`/api/users/:id`, userCtrl.getUsers);
+app.get("/api/users/:id", userCtrl.getUsers);
+app.post("/api/listusers/:id", userCtrl.addListUser);
 
 const port = SERVER_PORT || 4040;
 app.listen(port, () => console.log(`Server running on port ${port}`));

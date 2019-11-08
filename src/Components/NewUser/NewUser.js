@@ -10,12 +10,15 @@ const NewUser = props => {
   useEffect(() => {
     axios
       .get(`api/users/${props.listId}`)
-      .then(res => changeUsers(res))
+      .then(res => changeUsers(res.data))
       .catch(err => console.log(err));
   }, []);
 
   const handleAddUser = () => {
-    axios.post(`api/list-users/`);
+    axios
+      .post(`api/listusers/${props.listId}`, { email: input })
+      .then(res => changeUsers(res.data))
+      .catch(err => console.log(err));
   };
 
   const handleInput = value => {

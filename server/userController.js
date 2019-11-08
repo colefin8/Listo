@@ -14,9 +14,23 @@ module.exports = {
     const { id } = req.params;
     const db = req.app.get("db");
 
-    await db
+    let data = await db
       .get_users(id)
-      .then(response => res.status(200).send(response.data))
+      .then(response => response.data)
       .catch(err => console.log(err));
+
+    res.status(200).send(data);
+  },
+
+  addListUser: async (req, res) => {
+    const { id } = req.params;
+    const { email } = req.body;
+    const db = req.app.get("db");
+    let data = await db
+      .add_list_user([id, email])
+      .then(res => res.data)
+      .catch(err => console.log(err));
+
+    res.status(200).send(data);
   }
 };
