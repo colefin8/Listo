@@ -11,23 +11,6 @@ const Auth = props => {
   const [passwordInput, changePasswordInput] = useState("");
   const [emailInput, changeEmailInput] = useState("");
 
-  useEffect(() => {
-    anime({
-      targets: ".circle",
-      left: "15vw",
-      easing: "easeInOutQuad",
-      delay: anime.stagger(150)
-    });
-    anime({
-      targets: ".circle",
-      translateX: 8,
-      easing: "easeInOutSine",
-      delay: anime.stagger(50),
-      direction: "alternate",
-      loop: true
-    });
-  }, []);
-
   //INPUT HANDLERS
   const handleEmailInput = value => {
     changeEmailInput(value);
@@ -70,7 +53,6 @@ const Auth = props => {
         <h1>Listo</h1>
         <form className="smallBox" onSubmit={e => e.preventDefault()}>
           <div className="row">
-            <div className="circle"></div>
             <p>{`Email`}</p>
           </div>
           <input
@@ -81,7 +63,6 @@ const Auth = props => {
           />
 
           <div className="row">
-            <div className="circle"></div>
             <p>{`Password`}</p>
           </div>
           <input
@@ -93,13 +74,11 @@ const Auth = props => {
           />
 
           <div className="row">
-            <div className="circle"></div>
             <button type="submit" onClick={login}>
               Login
             </button>
           </div>
           <div className="row">
-            <div className="circle"></div>
             <button type="submit" onClick={register}>
               Register
             </button>
@@ -112,7 +91,6 @@ const Auth = props => {
             <p>Start a list right now</p>
           </header>
           <div className="row">
-            <div className="circle"></div>
             <Link to="/new-list">
               <button
                 onClick={() => {
@@ -133,7 +111,4 @@ const mapDispatchToProps = {
   updateUser
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Auth);
+export default connect(null, mapDispatchToProps)(Auth);

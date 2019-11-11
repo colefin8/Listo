@@ -98,7 +98,7 @@
 
 @-webkit-keyframes hide1 {
   0% {
-    border: 1px solid black;
+    border: 1px solid #f4f3ea;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -113,7 +113,7 @@
 
 @keyframes hide1 {
   0% {
-    border: 1px solid black;
+    border: 1px solid #f4f3ea;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -134,7 +134,7 @@
     font-size: 0;
   }
   100% {
-    border: 1px solid black;
+    border: 1px solid #f4f3ea;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -149,7 +149,7 @@
     font-size: 0;
   }
   100% {
-    border: 1px solid black;
+    border: 1px solid #f4f3ea;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -175,5 +175,17 @@
 
 .usersList p {
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .newUserInput {
+    font-size: 36px;
+  }
+  .newUserButton {
+    font-size: 36px;
+    padding: 1vh;
+    border-radius: 10px;
+    color: #333d51;
+  }
 }
 /*# sourceMappingURL=NewUser.css.map */

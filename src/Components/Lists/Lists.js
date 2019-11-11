@@ -21,24 +21,28 @@ const Lists = props => {
       <>
         <Nav />
         <ul className="listsPage">
-          {lists.map((e, i) => {
-            console.log(e);
-            return (
-              <Link
-                className="listsLinks"
-                key={`listid${i}`}
-                to={`/list/${e.list_id}`}
-              >
-                <li className="listsPageItem">
-                  <p className="leftText">{e.name}</p>
-                  <p className="centerText">{`$${e.budget}`}</p>
-                  <p className="rightText">
-                    {e.private ? `public` : `private`}
-                  </p>
-                </li>
-              </Link>
-            );
-          })}
+          {lists.length >= 1 ? (
+            lists.map((e, i) => {
+              console.log(e);
+              return (
+                <Link
+                  className="listsLinks"
+                  key={`listid${i}`}
+                  to={`/list/${e.list_id}`}
+                >
+                  <li className="listsPageItem">
+                    <p className="leftText">{e.name}</p>
+                    <p className="centerText">{`$${e.budget}`}</p>
+                    <p className="rightText">
+                      {e.private ? `public` : `private`}
+                    </p>
+                  </li>
+                </Link>
+              );
+            })
+          ) : (
+            <h1> No lists yet!</h1>
+          )}
         </ul>
       </>
     );

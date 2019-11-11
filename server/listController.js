@@ -59,6 +59,7 @@ module.exports = {
     const { id } = req.params;
     const db = req.app.get("db");
     let lists = await db.get_all_lists(id).catch(err => console.log(err));
+    console.log(lists);
     res.status(200).send(lists);
   }
 };

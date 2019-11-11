@@ -1,4 +1,5 @@
 .listsPage {
+  height: 83.33333vh;
   text-align: center;
   font-family: "Raleway", sans-serif;
   font-size: 24px;
@@ -15,9 +16,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .listsPage .leftText {

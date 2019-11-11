@@ -81,7 +81,7 @@ $navheight: (100vh/6);
 
 @keyframes hide1 {
   0% {
-    border: 1px solid black;
+    border: 1px solid $color3;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -104,7 +104,7 @@ $navheight: (100vh/6);
   }
 
   100% {
-    border: 1px solid black;
+    border: 1px solid $color3;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -119,5 +119,17 @@ $navheight: (100vh/6);
   align-items: center;
   p {
     margin: 0;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .newUserInput {
+    font-size: 36px;
+  }
+  .newUserButton {
+    font-size: 36px;
+    padding: 1vh;
+    border-radius: 10px;
+    color: $color1;
   }
 }

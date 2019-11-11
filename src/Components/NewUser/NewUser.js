@@ -50,7 +50,7 @@ const NewUser = props => {
             onChange={e => handleInput(e.target.value)}
           />
         </div>
-        <button className="newUserInput" onClick={handleAddUser}>
+        <button className="newUserButton" onClick={handleAddUser}>
           Add User to List
         </button>
       </section>

@@ -1,1 +1,1 @@
-SELECT * FROM list WHERE creator_id = $1;
+SELECT * FROM list l join groups g on l.list_id = g.list_id where g.user_id = $1;

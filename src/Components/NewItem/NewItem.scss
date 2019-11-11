@@ -80,7 +80,7 @@ $navheight: (100vh/6);
 
 @keyframes hide1 {
   0% {
-    border: 1px solid black;
+    border: 1px solid $color3;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
@@ -103,7 +103,7 @@ $navheight: (100vh/6);
   }
 
   100% {
-    border: 1px solid black;
+    border: 1px solid $color3;
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
