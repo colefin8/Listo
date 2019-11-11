@@ -1,5 +1,4 @@
 require("dotenv").config();
-const path = require("path");
 const express = require("express"),
   cors = require("cors"),
   AWS = require("aws-sdk"),
@@ -13,9 +12,6 @@ const express = require("express"),
   userCtrl = require("./userController"),
   app = express();
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
-});
 app.use(cors());
 app.use(express.json());
 app.use(express.static(`${__dirname}/../build`));
