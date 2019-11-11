@@ -11,6 +11,7 @@ FROM users u
 WHERE u.email = $4
 RETURNING list_id;
 
+
 -- INSERT INTO list (
 -- name,
 -- budget,

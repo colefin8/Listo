@@ -18,11 +18,18 @@ function NavMenu(props) {
       .then(console.log(props.history.push("/")))
       .catch(err => console.log(err));
   };
+
+  const getClassName = () => {
+    return window.outerWidth < 768 ? "fa-3x" : "fa-6x";
+  };
+
   if (props.user_id === 1) {
     return (
       <nav className={props.className}>
-        <span>Return to login</span>{" "}
-        <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+        <i
+          className={"fas fa-sign-out-alt " + getClassName()}
+          onClick={logout}
+        ></i>
       </nav>
     );
   } else {
@@ -30,54 +37,69 @@ function NavMenu(props) {
       return (
         <nav className={props.className}>
           <Link className="menuLink" to={`/lists/${props.user_id}`}>
-            <i className="fas fa-list fa-3x"></i>
+            <i className={"fas fa-list " + getClassName()}></i>
           </Link>
-          <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+          <i
+            className={"fas fa-sign-out-alt " + getClassName()}
+            onClick={logout}
+          ></i>
         </nav>
       );
     } else if (path === "list") {
       return (
         <nav className={props.className}>
           <Link className="menuLink" to="/dashboard">
-            <i className="fas fa-home fa-3x"></i>
+            <i className={"fas fa-home " + getClassName()}></i>
           </Link>
           <Link className="menuLink" to={`/lists/${props.user_id}`}>
-            <i className="fas fa-list fa-3x"></i>
+            <i className={"fas fa-list " + getClassName()}></i>
           </Link>
-          <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+          <i
+            className={"fas fa-sign-out-alt " + getClassName()}
+            onClick={logout}
+          ></i>
         </nav>
       );
     } else if (path === "item") {
       return (
         <nav className={props.className}>
           <Link className="menuLink" to="/dashboard">
-            <i className="fas fa-home fa-3x"></i>
+            <i className={"fas fa-home " + getClassName()}></i>
           </Link>
           <Link className="menuLink" to={`/lists/${props.user_id}`}>
-            <i className="fas fa-list fa-3x"></i>
+            <i className={"fas fa-list " + getClassName()}></i>
           </Link>
-          <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+          <i
+            className={"fas fa-sign-out-alt " + getClassName()}
+            onClick={logout}
+          ></i>
         </nav>
       );
     } else if (path === "new-list") {
       return (
         <nav className={props.className}>
           <Link className="menuLink" to="/dashboard">
-            <i className="fas fa-home fa-3x"></i>
+            <i className={"fas fa-home " + getClassName()}></i>
           </Link>
           <Link className="menuLink" to={`/lists/${props.user_id}`}>
-            <i className="fas fa-list fa-3x"></i>
+            <i className={"fas fa-list " + getClassName()}></i>
           </Link>
-          <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+          <i
+            className={"fas fa-sign-out-alt " + getClassName()}
+            onClick={logout}
+          ></i>
         </nav>
       );
     } else if (path === "lists") {
       return (
         <nav className={props.className}>
           <Link className="menuLink" to="/dashboard">
-            <i className="fas fa-home fa-3x"></i>
+            <i className={"fas fa-home " + getClassName()}></i>
           </Link>
-          <i className="fas fa-sign-out-alt fa-3x" onClick={logout}></i>
+          <i
+            className={"fas fa-sign-out-alt " + getClassName()}
+            onClick={logout}
+          ></i>
         </nav>
       );
     }

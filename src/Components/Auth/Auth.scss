@@ -12,7 +12,7 @@
   width: 20px;
   border-radius: 50%;
   position: absolute;
-  left: -100px;
+  left: 100px;
 }
 
 .authBox {
@@ -31,7 +31,6 @@
   box-sizing: border-box;
   font-family: $font;
   color: $color3;
-  font-size: 18px;
   @include flexColumnCenter;
   justify-content: space-evenly;
 
@@ -73,7 +72,7 @@
 .inputField {
   margin-top: 2px;
   color: $color3;
-  font-size: 18px;
+  // font-size: 18px;
   background-color: transparent;
   border-width: 0 0 1px 0;
   border-color: $color3;
@@ -107,4 +106,40 @@ header {
       text-decoration: underline;
     }
   }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .circle {
+    width: 40px;
+    height: 40px;
+    left: 100px;
+  }
+  p {
+    font-size: 48px;
+  }
+  .centerBox {
+    h1 {
+      font-size: 100px;
+      margin-bottom: 5vh;
+    }
+  }
+  .inputField {
+    font-size: 36px;
+  }
+  .smallBox {
+    border: none;
+    height: 40%;
+    // border-width: 5px 5px 0px 0px;
+    // border-color: $color3;
+    // border-style: solid;
+    // border-radius: 0 30% 0 0;
+  }
+  .row {
+    button {
+      font-size: 36px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
 }

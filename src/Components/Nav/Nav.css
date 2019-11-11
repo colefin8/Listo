@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   color: #f4f3ea;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #f4f3ea;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

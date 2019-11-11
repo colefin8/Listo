@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express"),
   cors = require("cors"),
   AWS = require("aws-sdk"),
@@ -12,8 +13,9 @@ const express = require("express"),
   userCtrl = require("./userController"),
   app = express();
 
-const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 app.use(cors());
 app.use(express.json());
 app.use(
@@ -45,7 +47,8 @@ app.post("/api/auth/logout", authCtrl.logout);
 app.get("/api/auth/user", authCtrl.getUser);
 
 //LIST ENDPOINTS
-app.post("/api/list/add", listCtrl.add);
+app.post("/api/list/addprivate", listCtrl.addPrivate);
+app.post("/api/list/addpublic", listCtrl.addPublic);
 app.post("/api/list/addguest", listCtrl.addGuest);
 app.get("/api/list/:id", listCtrl.getList);
 app.get("/api/lists/:id", listCtrl.getAllLists);

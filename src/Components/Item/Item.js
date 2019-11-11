@@ -27,15 +27,15 @@ function Item(props) {
 
   useEffect(() => {
     getItems();
-  }, []);
+  }, [items, props.listId]);
 
   const mapped = items.map((e, i) => {
     return (
       <li className="listedItem" key={`item key:${i}`}>
         <div className="info">
           <Link className="link" to={`/item/${e.item_id}`}>
-            <div>{e.name}</div>
-            <div>{`$${e.price}`}</div>
+            <p>{e.name}</p>
+            <p>{`$${e.price}`}</p>
             <img
               alt={`${e.name}`}
               src={e.image || defaulticon}

@@ -33,7 +33,7 @@
 
 @keyframes hide {
   0% {
-    height: 100px;
+    height: (100vh/6);
   }
 
   100% {
@@ -47,6 +47,15 @@
   }
 
   100% {
-    height: 100px;
+    height: (100vh/6);
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .dropdown {
+    p {
+      font-size: 36px;
+      display: in;
+    }
   }
 }

@@ -3,6 +3,7 @@
 $dashboard_height: (100vh * (5/6));
 
 .listPage {
+  width: 100vw;
   font-family: $font;
   background-color: $color1;
   height: 100vh;
@@ -12,12 +13,24 @@ $dashboard_height: (100vh * (5/6));
     width: 100%;
     text-align: center;
   }
+}
+
+.menu {
+  height: (100vh/4);
+  display: flex;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
   button {
     color: $color1;
     font-family: $font;
     font-size: 18px;
     border: none;
     background-color: $color3;
+    border-radius: 10px;
 
     &:hover {
       text-decoration: underline;
@@ -32,12 +45,23 @@ $dashboard_height: (100vh * (5/6));
   }
 }
 
-.menu {
-  height: (100vh/6);
+.buttonBar {
   display: flex;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 90vw;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .listPage {
+    h1 {
+      font-size: 64px;
+    }
+  }
+
+  .menu {
+    button {
+      font-size: 36px;
+    }
+  }
 }

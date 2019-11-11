@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./NewList.css";
 import axios from "axios";
 
@@ -12,18 +12,33 @@ const NewList = props => {
   const addNewList = () => {
     console.log(`firing, ${(budget, listName)}`);
     props.email
-      ? axios
-          .post("/api/list/add", {
-            listName,
-            shared,
-            budget,
-            email: props.email
-          })
-          .then(res => {
-            const { list_id } = res.data;
-            props.history.push(`/list/${list_id}`);
-          })
-          .catch(err => console.log(err))
+      ? shared
+        ? axios
+            .post("/api/list/addprivate", {
+              listName,
+              shared,
+              budget,
+              email: props.email
+            })
+            .then(res => {
+              const { list_id } = res.data;
+              console.log(props.history);
+              props.history.push(`/list/${list_id}`);
+            })
+            .catch(err => console.log(err))
+        : axios
+            .post("/api/list/addpublic", {
+              listName,
+              shared,
+              budget,
+              email: props.email
+            })
+            .then(res => {
+              const { list_id } = res.data;
+              console.log(props.history);
+              props.history.push(`/list/${list_id}`);
+            })
+            .catch(err => console.log(err))
       : axios
           .post("/api/list/addguest", {
             listName,
@@ -105,4 +120,4 @@ const mapStateToProps = reduxState => {
   };
 };
 
-export default connect(mapStateToProps)(NewList);
+export default connect(mapStateToProps)(withRouter(NewList));

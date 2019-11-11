@@ -7,6 +7,8 @@ import Item from "../Item/Item";
 import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 import "./ListPage.css";
+require("dotenv").config();
+const { LOCALHOST_URL } = process.env;
 
 function ListPage(props) {
   const [justLoaded, changeJustLoaded] = useState(true);
@@ -23,20 +25,20 @@ function ListPage(props) {
 
   useEffect(() => {
     changeLoading(true);
+    changeListId(props.match.params.listid);
     axios
       .get(`api/list/${props.match.params.listid}`)
       .then(res => {
-        const { list_id, creator_id, budget, name } = res.data;
+        const { creator_id, budget, name } = res.data;
         const shared = res.data.private;
         changeName(name);
         changeBudget(budget);
         changeCreatorId(creator_id);
-        changeListId(list_id);
         changeShared(shared);
       })
       .catch(err => console.log(err));
     changeLoading(false);
-  }, []);
+  }, [loading]);
 
   const runningTotal = value => {
     changeTotal(value);
@@ -71,6 +73,7 @@ function ListPage(props) {
   };
 
   const authentication = () => {
+    console.log(listId);
     return shared ? (
       props.user_id === creatorId ? (
         <section className="listPage">
@@ -125,7 +128,7 @@ function ListPage(props) {
               <h1>{name}</h1>
               <h1>{`budget: $${budget}`}</h1>
               <h1>{`current total: $${total}`}</h1>
-              <div>
+              <div className="buttonBar">
                 <button className="button" onClick={toggleAddItem}>
                   Add Item
                 </button>
@@ -172,7 +175,7 @@ function ListPage(props) {
           </p>
           <input
             readOnly
-            value={`localhost:3000/#/${props.match.url}`}
+            value={`${LOCALHOST_URL}${props.match.url}`}
             onFocus={e => e.target.select()}
           />
         </div>

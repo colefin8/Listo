@@ -17,6 +17,10 @@ const Nav = props => {
     changeJustLoaded(false);
   };
 
+  const getClassName = () => {
+    return window.outerWidth < 768 ? "fas fa-bars fa-4x" : "fas fa-bars fa-8x";
+  };
+
   const navClass = () => {
     const name = justLoaded
       ? "dropdown"
@@ -29,8 +33,7 @@ const Nav = props => {
   const { updateUser } = props;
   useEffect(() => {
     updateUser();
-  }, []);
-
+  }, [window.outerWidth]);
   return (
     <div className="navMenuContainer">
       {" "}
@@ -44,7 +47,7 @@ const Nav = props => {
           className="profilePic"
           src={props.profile_pic ? props.profile_pic : usericon}
         />{" "}
-        <i className="fas fa-bars fa-4x" onClick={toggleMenu}></i>{" "}
+        <i className={getClassName()} onClick={toggleMenu}></i>{" "}
       </header>{" "}
       <NavMenu className={navClass()} />{" "}
     </div>

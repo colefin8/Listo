@@ -48,3 +48,22 @@ $dashboard_height: (100vh * (5/6));
 .linkstyle {
   text-decoration: none;
 }
+
+@media (min-width: $breakpoint-tablet) {
+  .dashboard {
+    h1 {
+      font-size: 64px;
+    }
+
+    p {
+      font-size: 48px;
+    }
+  }
+
+  .listItem {
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    border-color: $color3;
+    margin-top: 1vh;
+  }
+}

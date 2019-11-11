@@ -4,7 +4,7 @@
   width: 20px;
   border-radius: 50%;
   position: absolute;
-  left: -100px;
+  left: 100px;
 }
 
 .authBox {
@@ -35,7 +35,6 @@
           box-sizing: border-box;
   font-family: "Raleway", sans-serif;
   color: #f4f3ea;
-  font-size: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,7 +94,6 @@
 .inputField {
   margin-top: 2px;
   color: #f4f3ea;
-  font-size: 18px;
   background-color: transparent;
   border-width: 0 0 1px 0;
   border-color: #f4f3ea;
@@ -140,5 +138,30 @@ header p {
 
 header p :hover {
   text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .circle {
+    width: 40px;
+    height: 40px;
+    left: 100px;
+  }
+  p {
+    font-size: 48px;
+  }
+  .centerBox h1 {
+    font-size: 100px;
+    margin-bottom: 5vh;
+  }
+  .inputField {
+    font-size: 36px;
+  }
+  .smallBox {
+    border: none;
+    height: 40%;
+  }
+  .row button {
+    font-size: 36px;
+  }
 }
 /*# sourceMappingURL=Auth.css.map */

@@ -1,5 +1,5 @@
 module.exports = {
-  add: async (req, res) => {
+  addPrivate: async (req, res) => {
     //req.body should contain list name, creator email, shared boolean, and budget
     //steps: check for email, get user_id off of email user
     //add to list table with all 4 data pieces of data, not email but user_id
@@ -7,7 +7,18 @@ module.exports = {
     console.log([listName, budget, shared, email]);
     const db = req.app.get("db");
     let newListId = await db
-      .add_list([listName, budget, shared, email])
+      .add_private_list([listName, budget, shared, email])
+      .catch(err => console.log(err));
+    newListId = newListId[0];
+    console.log(`newListId: ${newListId}`);
+    res.status(200).send(newListId);
+  },
+  addPublic: async (req, res) => {
+    const { listName, shared, budget, email } = req.body;
+    console.log([listName, budget, shared, email]);
+    const db = req.app.get("db");
+    let newListId = await db
+      .add_public_list([listName, budget, shared, email])
       .catch(err => console.log(err));
     newListId = newListId[0];
     console.log(`newListId: ${newListId}`);

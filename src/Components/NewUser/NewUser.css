@@ -54,8 +54,9 @@
           animation-fill-mode: forwards;
 }
 
-.newItemInput {
+.newUserInput {
   width: 75%;
+  text-align: center;
 }
 
 .preview {
@@ -80,7 +81,7 @@
   font-weight: bolder;
 }
 
-.inputField {
+.newUserInputField {
   margin-top: 2px;
   color: #f4f3ea;
   font-size: 18px;
@@ -90,7 +91,7 @@
   border-style: solid;
 }
 
-.inputField:focus {
+.newUserInputField:focus {
   outline: none;
   text-decoration: none;
 }
@@ -153,5 +154,26 @@
     width: calc(100vw - 40px);
     font-size: 18px;
   }
+}
+
+.usersList {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.usersList p {
+  margin: 0;
 }
 /*# sourceMappingURL=NewUser.css.map */

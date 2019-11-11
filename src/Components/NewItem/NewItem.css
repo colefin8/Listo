@@ -80,7 +80,7 @@
   font-weight: bolder;
 }
 
-.inputField {
+.newItemInputField {
   margin-top: 2px;
   color: #f4f3ea;
   font-size: 18px;
@@ -90,7 +90,7 @@
   border-style: solid;
 }
 
-.inputField:focus {
+.newItemInputField:focus {
   outline: none;
   text-decoration: none;
 }

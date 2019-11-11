@@ -13,10 +13,10 @@ module.exports = {
   getUsers: async (req, res) => {
     const { id } = req.params;
     const db = req.app.get("db");
-
+    console.log(id);
     let data = await db
-      .get_users(id)
-      .then(response => response.data)
+      .get_users(+id)
+      .then(response => response)
       .catch(err => console.log(err));
 
     res.status(200).send(data);
@@ -28,9 +28,9 @@ module.exports = {
     const db = req.app.get("db");
     let data = await db
       .add_list_user([id, email])
-      .then(res => res.data)
+      .then(res => res)
       .catch(err => console.log(err));
-
+    console.log(data);
     res.status(200).send(data);
   }
 };
