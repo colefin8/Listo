@@ -42,7 +42,7 @@ function Item(props) {
               className="itemImage"
             />
           </Link>
-          <p className="removeButton" onClick={() => removeItem()}>
+          <p className="removeButton" onClick={() => removeItem(e.item_id)}>
             X
           </p>
         </div>

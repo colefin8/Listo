@@ -27,11 +27,12 @@ module.exports = {
   addGuest: async (req, res) => {
     //req.body should contain list name, and budget
     const { listName, budget } = req.body;
-    console.log(listName, budget);
     const db = req.app.get("db");
     let newListId = await db
-      .add_list_guest([listName, budget])
+      .add_list_guest([listName, +budget])
+      // .then(res => console.log(res))
       .catch(err => err);
+    // console.log(newListId);
     newListId = newListId[0];
     res.status(200).send(newListId);
   },

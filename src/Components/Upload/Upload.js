@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import { v4 as randomString } from "uuid";
 import usericon from "./icons/usericon.svg";
+import defaulticon from "./icons/149092.svg";
 import "./Upload.css";
 
 const Upload = props => {
-  const [url, changeURL] = useState(usericon);
+  const [url, changeURL] = useState(props.user ? usericon : defaulticon);
 
   const getSignedRequest = () => {
     let file = document.getElementById("file").files[0];

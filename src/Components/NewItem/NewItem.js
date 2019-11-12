@@ -76,9 +76,9 @@ function NewItem(props) {
             onChange={e => changeLink(e.target.value)}
           />
         </div>
-        <button className="newItemInput" onClick={handleAddItem}>
-          Add Item to List
-        </button>
+        <div className="newItemInput">
+          <button onClick={handleAddItem}>Add Item to List</button>
+        </div>
       </section>
     </>
   );

@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import default_icon from "./icons/149092.svg";
 import "./ItemPage.css";
+import Upload from "../Upload/Upload";
 
 function ItemPage(props) {
   const [edit, changeEdit] = useState(false);
@@ -14,6 +15,7 @@ function ItemPage(props) {
   const [notes, changeNotes] = useState("");
   const [image, changeImage] = useState("");
   const [link, changeLink] = useState("");
+  const user = false;
 
   const toggleEdit = () => {
     console.log(props.user_id, creatorId);
@@ -96,11 +98,10 @@ function ItemPage(props) {
             </div>
             <div>
               {" "}
-              <p>Drag and drop new picture onto old one to replace</p>
-              <img
-                alt="item"
-                className="largeItemImage"
-                src={image ? image : default_icon}
+              <Upload
+                changeImage={changeImage}
+                user={user}
+                className="newItemUpload"
               />
             </div>
             <div className="editInput">
@@ -112,6 +113,9 @@ function ItemPage(props) {
       ) : (
         //IF EDIT  IS FALSE DISPLAY VIEW BELOW (NON-EDIT VIEW)
         <article className="itemPage">
+          <p className="backButton" onClick={() => props.history.goBack()}>
+            Back
+          </p>
           {name ? <h1>{name}</h1> : null}
           {price ? <p>{`$${price}`}</p> : null}
           {creatorEmail ? <p>{`Creator: ${creatorEmail}`}</p> : null}

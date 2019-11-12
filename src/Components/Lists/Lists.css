@@ -1,5 +1,5 @@
 .listsPage {
-  height: 83.33333vh;
+  min-height: 83.33333vh;
   text-align: center;
   font-family: "Raleway", sans-serif;
   font-size: 24px;

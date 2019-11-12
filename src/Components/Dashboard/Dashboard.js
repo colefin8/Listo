@@ -27,7 +27,6 @@ function Dashboard(props) {
         changeLoading(false);
       })
       .catch(err => {
-        changeLoading(false);
         console.log(err);
       });
   }, [props.user_id]);

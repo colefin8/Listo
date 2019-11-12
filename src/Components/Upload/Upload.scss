@@ -14,6 +14,7 @@
   padding: 10px;
   border: 1px solid;
   text-align: center;
+  border-radius: 10px;
   &:hover {
     font-weight: bolder;
   }
@@ -37,4 +38,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .fileInput {
+    font-size: 36px;
+  }
 }

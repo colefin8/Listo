@@ -54,7 +54,6 @@
 .wizardInput {
   margin-top: 10px;
   color: #f4f3ea;
-  font-size: 18px;
   background-color: transparent;
   border-width: 0 0 1px 0;
   border-color: #f4f3ea;
@@ -79,5 +78,29 @@
 .wizardButton:focus {
   outline: none;
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .newListWizard h1 {
+    font-size: 100px;
+    margin-bottom: 40px;
+  }
+  .newListWizard .newListForm {
+    border: none;
+  }
+  .wizardInput {
+    font-size: 48px;
+  }
+  .publicRadio {
+    font-size: 48px;
+  }
+  .publicRadio input {
+    margin-left: 30px;
+    height: 36px;
+    width: 36px;
+  }
+  .wizardButton {
+    font-size: 48px;
+  }
 }
 /*# sourceMappingURL=NewList.css.map */

@@ -6,4 +6,4 @@ private,
 creator_id
 )
 values( $1, $2, false, 1 )
-RETURNING list_id;
+RETURNING *;

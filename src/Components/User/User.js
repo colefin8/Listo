@@ -10,6 +10,7 @@ const User = props => {
   const [toggleEdit, changeToggleEdit] = useState(false);
   const [previewImg, changePreview] = useState(props.profile_pic || usericon);
   const [email, changeEmail] = useState(props.email || "none");
+  const user = true;
 
   const editUser = () => {
     axios
@@ -33,7 +34,11 @@ const User = props => {
               onChange={e => changeEmail(e.target.value)}
             />
           </div>
-          <Upload className="profilePic" changeImage={changePreview} />
+          <Upload
+            className="profilePic"
+            user={user}
+            changeImage={changePreview}
+          />
           <button onClick={() => editUser()}>Save</button>
         </>
       ) : (
@@ -49,7 +54,7 @@ const User = props => {
         </>
       )}{" "}
       <button onClick={() => changeToggleEdit(!toggleEdit)}>
-        {toggleEdit ? "cancel" : "edit"}
+        {toggleEdit ? "Cancel" : "Edit"}
       </button>
     </div>
   );

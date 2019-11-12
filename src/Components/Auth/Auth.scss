@@ -83,10 +83,14 @@
   border-color: $color3;
   border-style: solid;
   border-radius: 0 10% 0 0;
+  font-size: 18px;
 
   p {
     width: 100%;
     text-align: center;
+  }
+  input {
+    font-size: 18px;
   }
 }
 
@@ -119,6 +123,9 @@ header {
     // border-color: $color3;
     // border-style: solid;
     // border-radius: 0 30% 0 0;
+    input {
+      font-size: 36px;
+    }
   }
   .row {
     button {

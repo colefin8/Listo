@@ -12,6 +12,7 @@
   padding: 10px;
   border: 1px solid;
   text-align: center;
+  border-radius: 10px;
 }
 
 .fileInput:hover {
@@ -53,5 +54,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 768px) {
+  .fileInput {
+    font-size: 36px;
+  }
 }
 /*# sourceMappingURL=Upload.css.map */

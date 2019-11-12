@@ -5,10 +5,6 @@
   top: 10px;
 }
 
-.preview {
-  width: 50vw;
-}
-
 .popup {
   position: fixed;
   margin: 20px;
@@ -30,6 +26,10 @@
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
+}
+
+.popup .preview {
+  width: 75vw;
 }
 
 .hide-new-item-animation {
@@ -55,11 +55,39 @@
 }
 
 .newItemInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 75%;
+  color: #f4f3ea;
 }
 
-.preview {
-  width: 75vw;
+.newItemInput button {
+  color: #333d51;
+  background-color: #f4f3ea;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.newItemInput button:hover {
+  font-weight: bolder;
+}
+
+.newItemInput button:focus {
+  font-weight: bolder;
+}
+
+.newItemInput input {
+  background-color: #333d51;
+  color: #f4f3ea;
+  border-width: 0 0 1px 0;
 }
 
 #file {
@@ -84,15 +112,25 @@
   margin-top: 2px;
   color: #f4f3ea;
   font-size: 18px;
-  background-color: transparent;
-  border-width: 0 0 1px 0;
-  border-color: #f4f3ea;
-  border-style: solid;
 }
 
-.newItemInputField:focus {
-  outline: none;
-  text-decoration: none;
+.newItemInputField button {
+  color: #333d51;
+  background-color: #f4f3ea;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.newItemInputField button:hover {
+  font-weight: bolder;
+}
+
+.newItemInputField button:focus {
+  font-weight: bolder;
 }
 
 @-webkit-keyframes hide1 {
@@ -152,6 +190,36 @@
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .popup {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .popup span {
+    font-size: 36px;
+  }
+  .popup .preview {
+    width: 50vw;
+  }
+  .popup input {
+    font-size: 36px;
+  }
+  .newItemInput button {
+    font-size: 36px;
   }
 }
 /*# sourceMappingURL=NewItem.css.map */

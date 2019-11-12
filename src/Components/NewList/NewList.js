@@ -11,7 +11,7 @@ const NewList = props => {
 
   const addNewList = () => {
     console.log(`firing, ${(budget, listName)}`);
-    props.email
+    props.email !== "guest"
       ? shared
         ? axios
             .post("/api/list/addprivate", {
@@ -35,7 +35,6 @@ const NewList = props => {
             })
             .then(res => {
               const { list_id } = res.data;
-              console.log(props.history);
               props.history.push(`/list/${list_id}`);
             })
             .catch(err => console.log(err))
@@ -81,7 +80,7 @@ const NewList = props => {
             />
           </div>
           {props.user_id === 1 ? (
-            <div>
+            <div className="publicRadio">
               <span>List will be public</span>
               <input
                 name="changeShared"
@@ -92,7 +91,7 @@ const NewList = props => {
               />
             </div>
           ) : (
-            <div>
+            <div className="publicRadio">
               <span>Make it a shared List? </span>
               <input
                 name="changeShared"

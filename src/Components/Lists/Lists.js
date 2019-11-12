@@ -4,20 +4,30 @@ import axios from "axios";
 import "./Lists.css";
 import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
+import Loading from "../Loading/Loading";
 
 const Lists = props => {
+  const [lists, changeLists] = useState([]);
+  const [loading, changeLoading] = useState(false);
+
   useEffect(() => {
+    changeLoading(true);
     props.user_id === +props.match.params.userid
-      ? axios.get(`/api/lists/${props.match.params.userid}`).then(res => {
-          changeLists(res.data);
-        })
+      ? axios
+          .get(`/api/lists/${props.match.params.userid}`)
+          .then(res => {
+            changeLists(res.data);
+            changeLoading(false);
+          })
+          .catch(() => changeLoading(false))
       : changeLists([]);
   }, []);
 
-  const [lists, changeLists] = useState([]);
   console.log(props.user_id, props.match.params.userid);
   if (props.user_id === +props.match.params.userid) {
-    return (
+    return loading ? (
+      <Loading />
+    ) : (
       <>
         <Nav />
         <ul className="listsPage">

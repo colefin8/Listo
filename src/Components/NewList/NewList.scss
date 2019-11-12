@@ -41,7 +41,6 @@ $font: "Raleway", sans-serif;
 .wizardInput {
   margin-top: 10px;
   color: $color3;
-  font-size: 18px;
   background-color: transparent;
   border-width: 0 0 1px 0;
   border-color: $color3;
@@ -63,5 +62,31 @@ $font: "Raleway", sans-serif;
   &:focus {
     outline: none;
     text-decoration: none;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .newListWizard {
+    h1 {
+      font-size: 100px;
+      margin-bottom: 40px;
+    }
+    .newListForm {
+      border: none;
+    }
+  }
+  .wizardInput {
+    font-size: 48px;
+  }
+  .publicRadio {
+    font-size: 48px;
+    input {
+      margin-left: 30px;
+      height: 36px;
+      width: 36px;
+    }
+  }
+  .wizardButton {
+    font-size: 48px;
   }
 }

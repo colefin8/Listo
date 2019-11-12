@@ -35,10 +35,10 @@ function ListPage(props) {
         changeBudget(budget);
         changeCreatorId(creator_id);
         changeShared(shared);
+        changeLoading(false);
       })
-      .catch(err => console.log(err));
-    changeLoading(false);
-  }, [loading]);
+      .catch(() => changeLoading(false));
+  }, []);
 
   const runningTotal = value => {
     changeTotal(value);

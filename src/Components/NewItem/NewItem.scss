@@ -8,10 +8,6 @@ $navheight: (100vh/6);
   top: 10px;
 }
 
-.preview {
-  width: 50vw;
-}
-
 .popup {
   position: fixed;
   margin: 20px;
@@ -24,6 +20,9 @@ $navheight: (100vh/6);
   justify-content: space-evenly;
   align-items: center;
   justify-items: center;
+  .preview {
+    width: 75vw;
+  }
 }
 
 .hide-new-item-animation {
@@ -41,11 +40,31 @@ $navheight: (100vh/6);
 }
 
 .newItemInput {
+  display: flex;
+  justify-content: center;
   width: 75%;
-}
-
-.preview {
-  width: 75vw;
+  color: $color3;
+  button {
+    color: $color1;
+    background-color: $color3;
+    font-family: $font;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 10px;
+    &:hover {
+      font-weight: bolder;
+    }
+    &:focus {
+      font-weight: bolder;
+    }
+  }
+  input {
+    background-color: $color1;
+    color: $color3;
+    border-width: 0 0 1px 0;
+  }
 }
 
 #file {
@@ -68,13 +87,21 @@ $navheight: (100vh/6);
   margin-top: 2px;
   color: $color3;
   font-size: 18px;
-  background-color: transparent;
-  border-width: 0 0 1px 0;
-  border-color: $color3;
-  border-style: solid;
-  &:focus {
-    outline: none;
-    text-decoration: none;
+  button {
+    color: $color1;
+    background-color: $color3;
+    font-family: $font;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 10px;
+    &:hover {
+      font-weight: bolder;
+    }
+    &:focus {
+      font-weight: bolder;
+    }
   }
 }
 
@@ -107,5 +134,28 @@ $navheight: (100vh/6);
     height: calc((500vh / 6) - 40px);
     width: calc(100vw - 40px);
     font-size: 18px;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    span {
+      font-size: 36px;
+    }
+    .preview {
+      width: 50vw;
+    }
+    input {
+      font-size: 36px;
+    }
+  }
+  .newItemInput {
+    button {
+      font-size: 36px;
+    }
   }
 }

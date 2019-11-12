@@ -2,12 +2,18 @@
   height: 83.33333vh;
   background-color: #333d51;
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .grid {
-  bottom: calc(25% - 250px);
-  left: calc(50% - 125px);
-  position: relative;
   height: 500px;
   width: 250px;
   display: -webkit-box;
@@ -15,6 +21,9 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #333d51;
 }
 
@@ -24,5 +33,32 @@
   width: 40px;
   background-color: #333d51;
   border-radius: 50%;
+}
+
+.gridLine {
+  margin: 5px;
+  height: 10px;
+  width: 40px;
+  background-color: #333d51;
+  border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    height: 1000px;
+    width: 500px;
+  }
+  .gridSphere {
+    margin: 20px;
+    height: 60px;
+    width: 60px;
+  }
+  .gridLine {
+    margin: 20px;
+    height: 15px;
+    width: 60px;
+    background-color: #333d51;
+    border-radius: 10px;
+  }
 }
 /*# sourceMappingURL=Loading.css.map */
