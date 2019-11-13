@@ -22,6 +22,7 @@
 .dashboard h1 {
   color: #f4f3ea;
   font-size: 36px;
+  line-height: 100%;
 }
 
 .dashboard p {
@@ -36,9 +37,8 @@
   text-align: right;
 }
 
-.guestHeader {
-  width: 100vw;
-  text-align: center;
+.fa-angle-right {
+  margin-left: 3vw;
 }
 
 .listItem {
@@ -57,6 +57,16 @@
 
 .linkstyle {
   text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f4f3ea;
 }
 
 @media (min-width: 768px) {

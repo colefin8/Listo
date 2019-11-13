@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "../List/List";
 import "./Dashboard.css";
+import anime from "animejs";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -31,18 +32,29 @@ function Dashboard(props) {
       });
   }, [props.user_id]);
 
+  anime({
+    targets: `.fa-angle-right`,
+    scale: 0.9,
+    translateX: 20,
+    opacity: 0,
+    easing: "easeInExpo",
+    loop: true,
+    duration: 5000,
+    direction: "alternate"
+  });
+
   return (
     <>
       {props.user_id === 1 ? (
         <article className="dashboard">
           <Link className="linkstyle guestHeader" to="/new-list">
             <h1>New List</h1>
-            <i id="arrow" className="fa fa-angle-right"></i>
+            <i id="arrow1" className="fa fa-angle-right fa-3x"></i>
           </Link>
           <h1 className="guestHeader">Logged in as Guest</h1>
           <Link className="linkstyle guestHeader" to="/">
-            <h1>Return to login screen? </h1>
-            <i id="arrow" className="fa fa-angle-right"></i>
+            <h1>Return to Login</h1>
+            <i id="arrow2" className="fa fa-angle-right fa-3x"></i>
           </Link>
         </article>
       ) : loading ? (
@@ -51,7 +63,7 @@ function Dashboard(props) {
         <article className="dashboard">
           <Link className="linkstyle" to="/new-list">
             <h1>New List</h1>
-            <i id="arrow" className="fa fa-angle-right"></i>
+            <i id="arrow3" className="fa fa-angle-right fa-3x"></i>
           </Link>
           <div>
             <h1>Recent Personal Lists</h1>
