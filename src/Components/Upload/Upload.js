@@ -43,9 +43,7 @@ const Upload = props => {
         console.log(url);
       })
       .catch(err => {
-        console.log(
-          `ERROR: forbidden bc of some weird permissions thing \n${err}`
-        );
+        console.log(err);
       });
   };
 

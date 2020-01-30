@@ -73,7 +73,7 @@ function ListPage(props) {
   };
 
   const authentication = () => {
-    console.log(listId);
+    // console.log(listId);
     return shared ? (
       props.user_id === creatorId ? (
         <section className="listPage">

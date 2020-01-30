@@ -1,20 +1,11 @@
 require("dotenv").config();
-const multer = require("multer");
 const AWS = require("aws-sdk");
-const fs = require("fs");
 const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET_NAME } = process.env;
-const storage = multer.diskStorage({
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-  preservePath: true
-});
-const upload = multer({ storage }).single("file");
 
 module.exports = {
   signs3: (req, res) => {
     AWS.config = {
-      region: "us-east-2",
+      region: "us-west-1",
       accessKeyId: AWS_ACCESS_KEY_ID,
       secretAccessKey: AWS_SECRET_ACCESS_KEY
     };
