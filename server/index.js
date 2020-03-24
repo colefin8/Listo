@@ -21,8 +21,8 @@ app.use(
     saveUninitialized: true,
     secret: SESSION_SECRET,
     cookie: {
-      //max age 1 hr
-      maxAge: 100 * 60 * 60
+      //max age 1 week
+      maxAge: 100 * 60 * 60 * 24 * 7
     }
   })
 );
